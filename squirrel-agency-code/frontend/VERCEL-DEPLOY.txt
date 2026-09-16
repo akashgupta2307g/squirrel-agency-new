@@ -1,0 +1,46 @@
+THE SQUIRREL AGENCY — VERCEL DEPLOYMENT GUIDE
+==============================================
+
+Ye zip FRONTEND-ONLY hai aur Vercel ke liye taiyaar hai.
+Backend (FastAPI) Vercel par nahi chalega — wo abhi Emergent preview par live hai,
+aur frontend wahi se data leta hai (REACT_APP_BACKEND_URL ke through).
+
+Pichli zip blank isliye aayi thi: usme frontend+backend nested folders the,
+craco.config.js missing tha, aur SPA routing ke rewrites nahi the.
+Ye zip teeno problems fix karti hai.
+
+-----------------------------------
+TARIKA 1: Vercel CLI se (sabse fast)
+-----------------------------------
+1. Is zip ko apne computer par extract karein
+2. Folder mein terminal kholein aur chalayein:
+     npm install -g vercel        (sirf pehli baar)
+     vercel login
+     vercel --prod
+3. Jab settings pooche:
+     - Framework: Create React App
+     - Build command: yarn build
+     - Output directory: build
+     - Install command: yarn install
+4. Environment variable add karein (jab pooche ya dashboard mein):
+     REACT_APP_BACKEND_URL = https://digital-motion-7.preview.emergentagent.com
+
+-----------------------------------
+TARIKA 2: GitHub + Vercel Dashboard se
+-----------------------------------
+1. GitHub par nayi repository banayein, is folder ki SAARI files upload karein
+2. vercel.com → Add New → Project → apni repo import karein
+3. Framework Preset: Create React App
+4. Build Command: yarn build | Output: build | Install: yarn install
+5. Environment Variables mein add karein:
+     REACT_APP_BACKEND_URL = https://digital-motion-7.preview.emergentagent.com
+6. Deploy dabayein — 1-2 minute mein site live
+
+-----------------------------------
+ZAROORI BAATEIN
+-----------------------------------
+- vercel.json isme pehle se hai (SPA routing ke liye — refresh/back/forward sab kaam karega)
+- CI=false set hai taake chhote warnings build fail na karein
+- Backend alag deploy karna ho toh Render.com ya Railway par karein
+  (backend folder main code zip mein hai), phir REACT_APP_BACKEND_URL update kar dein
+- Live site ke baad domain apna jod sakte hain (Vercel → Domains)

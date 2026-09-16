@@ -1,0 +1,93 @@
+THE SQUIRREL AGENCY — SPLIT DEPLOYMENT GUIDE
+Frontend → Vercel  |  Backend → Render/Railway  |  Database → MongoDB Atlas
+==========================================================================
+
+GOOD NEWS: Code mein KOI CHANGE nahi karna hai.
+Saari cheezein environment variables se chalti hain — sirf platform par
+settings aur env vars daalne hain. Neeche poora step-by-step hai.
+
+==========================================================================
+STEP 0 — Code ko GitHub par daalein (dono deployments ke liye zaroori)
+==========================================================================
+1. github.com par nayi private repository banayein (e.g. squirrel-agency)
+2. Is zip ka poora content upload karein (backend/, frontend/ folders)
+   Tip: GitHub → "uploading an existing file" → drag-drop sab kuch
+
+==========================================================================
+STEP 1 — Database: MongoDB Atlas (FREE, 2 minute)
+==========================================================================
+Render/Railway par local MongoDB nahi hota, isliye cloud database chahiye:
+1. mongodb.com/atlas → Sign up (free) → Create FREE M0 cluster
+2. Database Access → Add user (username + password note kar lein)
+3. Network Access → Add IP → "Allow from anywhere" (0.0.0.0/0)
+4. Connect → Drivers → connection string copy karein:
+   mongodb+srv://USER:PASSWORD@cluster0.xxxxx.mongodb.net/
+   Ye aapka MONGO_URL hai.
+
+==========================================================================
+STEP 2 — Backend: Render par (render.com, free tier)
+==========================================================================
+1. render.com → Sign up → New → Web Service → apni GitHub repo select
+2. Settings:
+     Root Directory : backend
+     Runtime        : Python 3
+     Build Command  : pip install -r requirements.txt
+     Start Command  : uvicorn server:app --host 0.0.0.0 --port $PORT
+     (runtime.txt pehle se included hai — Python version automatic set)
+3. Environment Variables add karein:
+     MONGO_URL      = (Step 1 wala Atlas connection string)
+     DB_NAME        = squirrel_agency
+     CORS_ORIGINS   = https://YOUR-APP.vercel.app   (Step 3 ke baad aayega —
+                       abhi * rakh sakte hain, baad mein update kar dein)
+     EMERGENT_LLM_KEY = (image uploads ke liye — mujhse lein)
+     ADMIN_KEY      = Sqr!Studio#Kanpur26
+     RESEND_API_KEY = (aapki Resend key)
+     SENDER_EMAIL   = onboarding@resend.dev
+     OWNER_EMAIL    = info.turtleagency@gmail.com
+4. Deploy → live hone par aapko URL milega:
+     https://squirrel-backend.onrender.com
+5. Test karein browser mein: https://squirrel-backend.onrender.com/api/projects
+   → [] ya projects ki list dikhni chahiye. Bas, backend live!
+
+NOTE (Render free tier): 15 minute idle rehne par backend so jaata hai —
+pehli request par 30-60 second lag sakte hain. Paid plan ($7) mein ye nahi hota.
+Railway chahein toh: railway.app → New Project → Deploy from GitHub →
+root directory backend, same env vars — baaki sab same.
+
+==========================================================================
+STEP 3 — Frontend: Vercel par
+==========================================================================
+1. vercel.com → Add New → Project → apni GitHub repo import
+2. Settings:
+     Root Directory   : frontend
+     Framework Preset : Create React App
+     Build Command    : yarn build
+     Output Directory : build
+     Install Command  : yarn install
+3. Environment Variable:
+     REACT_APP_BACKEND_URL = https://squirrel-backend.onrender.com
+     (Step 2 ka URL — bina slash ke end mein)
+4. Deploy — 2 minute mein site live: https://your-app.vercel.app
+5. Ab wapas Render par jaakar CORS_ORIGINS update kar dein apne
+   Vercel domain se (security ke liye).
+
+==========================================================================
+STEP 4 — Final checks (2 minute)
+==========================================================================
+[ ] Vercel site khulti hai, hero typing chalti hai
+[ ] Work / Case Studies page par projects dikhte hain (backend se aate hain)
+[ ] Contact form bhejne par email aati hai
+[ ] /studio/editor password se khulta hai aur publish hota hai
+[ ] Har route refresh par kaam karta hai (vercel.json isi ke liye hai)
+
+==========================================================================
+DHYAN RAKHNE WALI BAATEIN
+==========================================================================
+- Pehle se upload ki hui project images purane Emergent URL ki taraf point
+  karti hain. Abhi aisi koi live project image nahi hai (sirf demo projects
+  hain jo frontend mein bundled hain), isliye koi migration zaroori nahi.
+  Naye uploads automatic naye backend URL ka use karenge.
+- EMERGENT_LLM_KEY cloud service hai — kahin se bhi kaam karti hai.
+- Resend emails kahin se bhi jaati hain — koi change nahi.
+- Custom domain: Vercel → Settings → Domains par apna domain add karein
+  (jaise thesquirrelagency.com) — DNS records Vercel bata dega.

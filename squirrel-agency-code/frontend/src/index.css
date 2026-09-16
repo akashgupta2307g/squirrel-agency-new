@@ -1,0 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { --bg:#0a0a0c; --surface:#101014; --line:#232329; --text:#f5f4ef; --muted:#9b9ba3; --blue:#2e4bff; --blue-bright:#4d68ff; --paper:#f4f3ee; --ink:#0c0c10; --ink-muted:#5f5f68; --ink-line:#dbd8cf; --inv:#0a0a0c; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; background:var(--bg); }
+body { margin:0; background:var(--bg); color:var(--text); font-family:'Manrope',sans-serif; -webkit-font-smoothing:antialiased; }
+a { color:inherit; text-decoration:none; }
+button,input,select,textarea { font:inherit; }
+button { cursor:pointer; }
+::selection { background:var(--blue); color:#fff; }
