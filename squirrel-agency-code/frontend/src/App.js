@@ -17,30 +17,142 @@ const images = {
   founder: img("founder"),
 };
 const services = [
-  ["01", "Website Development", "Digital homes with editorial clarity, technical depth and conversion built in.", "website-development"],
-  ["02", "Landing Page Development", "Focused journeys that turn attention into a next step.", "landing-page-development"],
-  ["03", "SEO", "Search foundations that compound authority long after launch.", "seo"],
-  ["04", "Meta Ads", "Creative-led campaigns built for scroll-stopping relevance.", "meta-ads"],
-  ["05", "Google Ads", "Performance media that meets intent with precision.", "google-ads"],
-  ["06", "Campaign Management", "One sharp operating rhythm across channels, creative and data.", "campaign-management"],
-  ["07", "Poster Design", "Cultural, campaign-ready visuals made to be remembered.", "poster-design"],
-  ["08", "UGC Video Creation", "Native short-form stories that feel human and move fast.", "ugc-video-creation"],
-  ["09", "Amazon Product Listing", "Search-rich, conversion-ready storefronts for Amazon.", "amazon-product-listing"],
-  ["10", "Flipkart Product Listing", "Marketplace content that makes a product easier to choose.", "flipkart-product-listing"],
-  ["11", "Myntra Product Listing", "Fashion-first catalog presentation with commercial instinct.", "myntra-product-listing"],
+  ["01", "Website Development", "Custom websites with editorial clarity, fast load times, clear information architecture and conversion paths built into every page — from brand sites to multi-page product experiences.", "website-development"],
+  ["02", "Landing Page Development", "Single-purpose landing pages engineered for campaigns, launches and lead capture — sharp messaging, proof, and a friction-free next step.", "landing-page-development"],
+  ["03", "SEO", "Technical SEO, on-page structure, content systems and authority building that compound discoverability long after the campaign ends.", "seo"],
+  ["04", "Meta Ads", "Facebook and Instagram campaigns with scroll-stopping creative, tight audience strategy and weekly optimisation around real business goals.", "meta-ads"],
+  ["05", "Google Ads", "Search, Performance Max and remarketing built around high-intent keywords — so you meet buyers when they are already looking.", "google-ads"],
+  ["06", "Campaign Management", "One operating rhythm across creative, media, landing pages and reporting — so every channel reinforces the same story.", "campaign-management"],
+  ["07", "Poster Design", "Campaign posters, social visuals and print-ready artwork with cultural edge — made to stop people and stick in memory.", "poster-design"],
+  ["08", "UGC Video Creation", "Native short-form video that feels human, not corporate — scripts, hooks and edits built for Reels, Shorts and paid social.", "ugc-video-creation"],
+  ["09", "Amazon Product Listing", "Keyword-rich titles, A+ content, image systems and listing health so your product ranks, looks trustworthy and converts.", "amazon-product-listing"],
+  ["10", "Flipkart Product Listing", "Category-ready Flipkart listings with clean attributes, benefit-led copy and imagery that reduces bounce and lifts orders.", "flipkart-product-listing"],
+  ["11", "Myntra Product Listing", "Fashion-first Myntra catalog work — fit, fabric, styling cues and studio imagery that help shoppers choose with confidence.", "myntra-product-listing"],
 ];
+const serviceDetails = {
+  "website-development": {
+    opportunity: "Your website is often the first serious conversation a buyer has with your brand. We design and build sites that look considered, load fast, and guide people toward enquiry, purchase or booking — without the usual agency fluff.",
+    points: [
+      ["01 / STRATEGY & IA", "Sitemap, messaging hierarchy and page jobs defined before a single layout is drawn."],
+      ["02 / DESIGN SYSTEM", "Typography, colour, components and motion that scale across every page."],
+      ["03 / BUILD & PERFORMANCE", "Clean front-end engineering, responsive layouts, SEO basics and conversion-minded CTAs."],
+      ["04 / LAUNCH SUPPORT", "QA, analytics setup, handover docs and a clear path for future updates."],
+    ],
+    forWho: "Startups, D2C brands, service businesses and founders who need a digital home that matches the ambition of the product.",
+  },
+  "landing-page-development": {
+    opportunity: "Homepages try to do everything. Landing pages do one job: turn traffic into a next step. We build focused pages for ads, launches and lead magnets — copy, design and proof working as one.",
+    points: [
+      ["01 / OFFER CLARITY", "Headline, promise and proof aligned to the campaign that sends the traffic."],
+      ["02 / CONVERSION LAYOUT", "Above-the-fold clarity, social proof, objection handling and a single primary CTA."],
+      ["03 / SPEED & TRACKING", "Fast load, mobile-first layout, pixel and form tracking ready for ads."],
+      ["04 / ITERATION", "A structure you can A/B test as creative and audiences evolve."],
+    ],
+    forWho: "Teams running Meta, Google or influencer traffic who need the page to close the loop.",
+  },
+  seo: {
+    opportunity: "Paid media stops when the budget stops. SEO builds a durable path to demand. We fix the foundations, structure content for intent, and set up a system that compounds over months — not overnight hacks.",
+    points: [
+      ["01 / TECHNICAL AUDIT", "Crawlability, indexation, Core Web Vitals, site structure and critical fixes."],
+      ["02 / ON-PAGE SYSTEMS", "Title patterns, internal linking, schema and content briefs tied to real queries."],
+      ["03 / CONTENT ROADMAP", "Topic clusters and page priorities mapped to commercial intent."],
+      ["04 / MEASUREMENT", "Search Console, ranking tracking and a monthly review cadence."],
+    ],
+    forWho: "Brands ready to invest in organic growth alongside (or instead of) paid acquisition.",
+  },
+  "meta-ads": {
+    opportunity: "Meta rewards relevance. We pair strong creative with disciplined audience and budget management so your brand shows up in the feed with a reason to stop — and a clear next action.",
+    points: [
+      ["01 / CREATIVE STRATEGY", "Hooks, angles and formats built for Reels, Stories and feed."],
+      ["02 / AUDIENCE ARCHITECTURE", "Prospecting, retargeting and lookalikes structured around your funnel."],
+      ["03 / MEDIA MANAGEMENT", "Daily monitoring, creative rotation and budget shifts toward what works."],
+      ["04 / REPORTING", "Clear weekly reads on spend, CPA, ROAS and learning — not vanity charts."],
+    ],
+    forWho: "D2C, local businesses and service brands that need Meta to become a predictable growth channel.",
+  },
+  "google-ads": {
+    opportunity: "Google captures intent. We build search and Performance Max campaigns that meet buyers mid-research — with tight keyword strategy, useful ad copy and landing pages that match the query.",
+    points: [
+      ["01 / KEYWORD STRATEGY", "High-intent themes, negatives and match types that protect budget."],
+      ["02 / AD CRAFT", "RSA copy, assets and extensions that speak to the query behind the click."],
+      ["03 / FUNNEL ALIGNMENT", "Landing pages and offers matched to each campaign cluster."],
+      ["04 / OPTIMISATION", "Bid strategy, search-term mining and weekly creative/offer tests."],
+    ],
+    forWho: "Businesses with clear offers and buyers who already search for what you sell.",
+  },
+  "campaign-management": {
+    opportunity: "Channels fail when they operate in silos. We run campaigns as one system — message, creative, media and landing experience managed together so learning compounds across the stack.",
+    points: [
+      ["01 / CAMPAIGN BLUEPRINT", "Goals, offers, audiences and channel roles defined up front."],
+      ["02 / CREATIVE OPS", "Asset calendars, variants and testing queues that keep momentum."],
+      ["03 / CROSS-CHANNEL RHYTHM", "Meta, Google, organic and landing updates in one weekly loop."],
+      ["04 / INSIGHT LOOPS", "What worked, what did not, and what we change next — written clearly."],
+    ],
+    forWho: "Founders who want one accountable team instead of juggling freelancers and platforms.",
+  },
+  "poster-design": {
+    opportunity: "A strong visual stops the scroll and carries the campaign. We design posters and key visuals with typography, composition and cultural instinct — ready for social, outdoor, print or event.",
+    points: [
+      ["01 / CONCEPT DIRECTION", "Mood, message and visual metaphor locked before production."],
+      ["02 / ART DIRECTION", "Layout systems that work across sizes without losing impact."],
+      ["03 / PRODUCTION FILES", "Print-ready and digital exports with clear usage notes."],
+      ["04 / CAMPAIGN VARIANTS", "Formats for feed, stories, banners and physical applications."],
+    ],
+    forWho: "Brands launching products, events, seasons or culture-led campaigns that need a memorable face.",
+  },
+  "ugc-video-creation": {
+    opportunity: "People trust people more than polish. We create UGC-style short video — hooks, scripts and edits — that feel native on social and still sell the product with clarity.",
+    points: [
+      ["01 / BRIEF & HOOKS", "Angles, talking points and first-three-second hooks for each asset."],
+      ["02 / PRODUCTION", "Creator-led or studio shoots with brand-safe but human delivery."],
+      ["03 / EDIT & CAPTIONS", "Pacing, text overlays and cuts built for mobile sound-off viewing."],
+      ["04 / AD-READY PACKS", "Multiple cuts for organic and paid, organised by funnel stage."],
+    ],
+    forWho: "E-commerce and consumer brands that need video creative that performs without looking like an ad.",
+  },
+  "amazon-product-listing": {
+    opportunity: "On Amazon, the listing is the storefront. We optimise titles, bullets, images and A+ content so shoppers find you, trust you and choose you over the next option in the SERP.",
+    points: [
+      ["01 / KEYWORD RESEARCH", "Search terms mapped into title, bullets and backend fields."],
+      ["02 / COPY SYSTEMS", "Benefit-led bullets and A+ modules that answer objections."],
+      ["03 / IMAGE DIRECTION", "Main image, lifestyle, infographics and detail shots that convert."],
+      ["04 / LISTING HEALTH", "Compliance checks and iteration based on search and conversion signals."],
+    ],
+    forWho: "Brands and sellers who want Amazon to be a growth channel, not just a catalogue dump.",
+  },
+  "flipkart-product-listing": {
+    opportunity: "Flipkart rewards clear category fit and trustworthy presentation. We build listings with accurate attributes, persuasive copy and imagery that reduce returns and lift conversion.",
+    points: [
+      ["01 / CATEGORY MAPPING", "Correct taxonomy, attributes and filters so you show up in the right searches."],
+      ["02 / LISTING COPY", "Titles and descriptions written for Flipkart shopper behaviour."],
+      ["03 / VISUAL PACK", "Clean product photography direction and benefit frames."],
+      ["04 / OPTIMISATION", "Ongoing tweaks based on visibility, CTR and order quality."],
+    ],
+    forWho: "Sellers expanding on Flipkart who need listings that compete on clarity, not just price.",
+  },
+  "myntra-product-listing": {
+    opportunity: "Fashion discovery is visual and detail-sensitive. We craft Myntra listings that communicate fit, fabric, occasion and style — so shoppers can decide without second-guessing.",
+    points: [
+      ["01 / FASHION ATTRIBUTES", "Fit, fabric, pattern, occasion and style cues filled accurately."],
+      ["02 / CATALOG STORY", "Copy that sells the look without overselling the product."],
+      ["03 / STUDIO IMAGERY", "Model and flat-lay direction aligned with Myntra browsing habits."],
+      ["04 / SEASON READY", "Variants and refreshes timed for drops, sales and trends."],
+    ],
+    forWho: "Apparel and lifestyle brands that need Myntra presence to feel as sharp as the collection.",
+  },
+};
 const projects = [
-  { name: "NOVA / D2C SKINCARE", type: "CONCEPT PROJECT", desc: "A quieter, faster storefront for a new generation of skincare.", image: img("project-nova"), tag: "E-COMMERCE", year: "2026" },
-  { name: "ATLAS / PRODUCT LAUNCH", type: "DEMO CASE STUDY", desc: "A launch system designed to give one sharp idea a long runway.", image: img("project-atlas"), tag: "CAMPAIGN", year: "2026" },
-  { name: "ORBIT / GROWTH ENGINE", type: "CONCEPT PROJECT", desc: "From first click to repeat customer, an ecosystem for momentum.", image: img("project-orbit"), tag: "PERFORMANCE", year: "2025" },
-  { name: "FORM / STUDIO EDIT", type: "DEMO CASE STUDY", desc: "An editorial identity that lets product and personality share the frame.", image: img("project-form"), tag: "CREATIVE", year: "2025" },
+  { name: "NOVA / D2C SKINCARE", type: "CONCEPT PROJECT", desc: "A quieter, faster storefront for a new generation of skincare — product storytelling, routine education and a checkout path designed for first-time buyers.", image: img("project-nova"), tag: "E-COMMERCE", year: "2026" },
+  { name: "ATLAS / PRODUCT LAUNCH", type: "DEMO CASE STUDY", desc: "A full launch system — landing page, campaign creative and performance media — designed to give one sharp product idea a long runway.", image: img("project-atlas"), tag: "CAMPAIGN", year: "2026" },
+  { name: "ORBIT / GROWTH ENGINE", type: "CONCEPT PROJECT", desc: "From first click to repeat purchase: website, ads and retention creative working as one ecosystem for sustainable momentum.", image: img("project-orbit"), tag: "PERFORMANCE", year: "2025" },
+  { name: "FORM / STUDIO EDIT", type: "DEMO CASE STUDY", desc: "An editorial identity and content system that lets product photography and brand personality share the same frame across web and social.", image: img("project-form"), tag: "CREATIVE", year: "2025" },
 ];
 const serviceVisuals = [img("svc-web"), img("svc-landing"), img("svc-seo"), img("svc-meta"), img("svc-google"), img("svc-campaign"), img("svc-poster"), img("svc-ugc"), img("svc-amazon"), img("svc-flipkart"), img("svc-myntra")];
 const stats = [["11", "Disciplines under one roof"], ["03", "Marketplaces covered end-to-end"], ["24h", "Response on every enquiry"], ["100%", "Founder-led, senior attention"]];
 const testimonials = [
-  ["They treated our launch like their own — strategy, design and ads finally moving as one team.", "RS", "R. SHARMA", "D2C FOUNDER"],
-  ["Fast, honest and unusually detail-obsessed. The website finally matches the product.", "AM", "A. MEHTA", "SAAS CO-FOUNDER"],
-  ["One team for the website, the creatives and the campaigns meant zero handoff chaos.", "KP", "K. PATEL", "RETAIL BRAND OWNER"],
+  ["They treated our launch like their own — strategy, design and ads finally moving as one team. The website, creatives and campaigns stopped feeling like three different agencies.", "RS", "R. SHARMA", "D2C FOUNDER"],
+  ["Fast, honest and unusually detail-obsessed. The website finally matches the product, and the landing pages actually convert the traffic we pay for.", "AM", "A. MEHTA", "SAAS CO-FOUNDER"],
+  ["One team for the website, the creatives and the campaigns meant zero handoff chaos. Decisions got faster and the work felt sharper every week.", "KP", "K. PATEL", "RETAIL BRAND OWNER"],
 ];
 const insights = [
   ["MARKETING", "Why your landing page — not your homepage — closes the sale", "4 MIN READ", "/insights/landing-page-vs-homepage"],
@@ -103,7 +215,7 @@ function Hero() {
       <div className="eyebrow hero-eyebrow" data-testid="hero-eyebrow">THE SQUIRREL AGENCY · EST. 2026</div>
       <h1 className={done ? "done" : ""} data-testid="hero-headline">{text}<span className="reveal-space">&nbsp;</span></h1>
       <motion.div className="hero-bottom" initial={{ opacity: 0, y: 26 }} animate={done ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, ease }}>
-        <p data-testid="hero-subheading">Technology, creativity and performance marketing for ambitious brands.</p>
+        <p data-testid="hero-subheading">Technology, creativity and performance marketing for ambitious brands — websites, campaigns, SEO and marketplace growth under one roof in Kanpur, working worldwide.</p>
         <div className="hero-actions"><Link className="button button-accent" to="/contact" data-testid="hero-start-project">Start a project <span>↗</span></Link><Link className="button button-quiet" to="/work" data-testid="hero-view-work">View our work <span>↗</span></Link></div>
       </motion.div>
     </div>
@@ -127,9 +239,48 @@ function WorkSection({ compact = false, filter = "All" }) {
   return <section className={`section light work-section ${compact ? "compact" : ""}`}><SectionHead eyebrow="03 / SELECTED WORK" title={<>Selected<br /><em>work.</em></>} text="Digital experiences built to perform. Concepts, systems and campaigns with a point of view." /><div className="project-grid">{shown.map((p, i) => <Reveal key={p.id || p.name} delay={(i % 2) * 0.08}><Link to="/case-studies" className="project-card" data-testid={`project-card-${i}`}><div className="project-image"><Image src={p.image} alt={`${p.name} ${p.tag} project visual`} /><span className="project-arrow">↗</span></div><div className="project-meta"><div><span className="project-type">{p.type}</span><h3>{p.name}</h3><p>{p.desc}</p></div><div className="project-side"><span>{p.tag}</span><span>{p.year}</span></div></div></Link></Reveal>)}</div>{!shown.length && <p data-testid="no-projects" style={{ color: "var(--muted)" }}>No projects in this category yet.</p>}</section>;
 }
 
-function ServicesSection() { const [active, setActive] = useState(0); return <section className="section light services-section"><SectionHead eyebrow="04 / WHAT WE DO" title={<>Eleven disciplines.<br /><em>One team.</em></>} text="Strategy, creative, technology and performance — connected from the first question to the last click." /><div className="services-interaction"><div className="service-list">{services.map((s, i) => <button type="button" className={`service-row ${active === i ? "active" : ""}`} onMouseEnter={() => setActive(i)} onFocus={() => setActive(i)} onClick={() => setActive(i)} key={s[3]} data-testid={`service-row-${s[3]}`}><span>{s[0]}</span><strong>{s[1]}</strong><i>↗</i></button>)}</div><div className="service-preview"><Image src={serviceVisuals[active]} alt={`${services[active][1]} visual`} /><div className="preview-label"><span>{services[active][0]} / {services[active][1]}</span><p>{services[active][2]}</p><Link className="service-explore" to={`/services/${services[active][3]}`} data-testid="service-explore-link">Explore this service ↗</Link></div></div></div></section>; }
+function ServicesSection() {
+  const [active, setActive] = useState(0);
+  return (
+    <section className="section light services-section">
+      <SectionHead eyebrow="04 / WHAT WE DO" title={<>Eleven disciplines.<br /><em>One team.</em></>} text="Strategy, creative, technology and performance — connected from the first question to the last click. Click any service to open the full brief." />
+      <div className="services-interaction">
+        <div className="service-list">
+          {services.map((s, i) => (
+            <Link
+              key={s[3]}
+              to={`/services/${s[3]}`}
+              className={`service-row ${active === i ? "active" : ""}`}
+              onMouseEnter={() => setActive(i)}
+              onFocus={() => setActive(i)}
+              onClick={() => setActive(i)}
+              data-testid={`service-row-${s[3]}`}
+            >
+              <span>{s[0]}</span>
+              <strong>{s[1]}</strong>
+              <i>↗</i>
+            </Link>
+          ))}
+        </div>
+        <Link
+          to={`/services/${services[active][3]}`}
+          className="service-preview"
+          data-testid="service-preview-link"
+          aria-label={`Open ${services[active][1]}`}
+        >
+          <Image src={serviceVisuals[active]} alt={`${services[active][1]} visual`} />
+          <div className="preview-label">
+            <span>{services[active][0]} / {services[active][1]}</span>
+            <p>{services[active][2]}</p>
+            <span className="service-explore">Explore this service ↗</span>
+          </div>
+        </Link>
+      </div>
+    </section>
+  );
+}
 
-function StudioBand() { return <section className="section light studio-band"><Reveal className="studio-copy"><span className="eyebrow">05 / CREATIVE STUDIO</span><h2>Designed to be seen.<br /><em>Built to perform.</em></h2><p>Campaign worlds, product stories and social-native creative that earn attention without shouting.</p><Link to="/work" className="text-link" data-testid="studio-work-link">Explore the studio <span>↗</span></Link></Reveal><Reveal className="studio-collage" delay={0.1}><Image src={images.studioA} alt="Creative studio design workspace with colour studies" /><Image src={images.studioB} alt="Graphic design and print production detail" /><span>MAKE<br />THE<br /><em>MEMORY</em></span></Reveal></section>; }
+function StudioBand() { return <section className="section light studio-band"><Reveal className="studio-copy"><span className="eyebrow">05 / CREATIVE STUDIO</span><h2>Designed to be seen.<br /><em>Built to perform.</em></h2><p>Campaign worlds, product stories, posters and social-native creative that earn attention without shouting. We treat every asset as part of a larger system — so the brand feels consistent from the first impression to the last click.</p><Link to="/work" className="text-link" data-testid="studio-work-link">Explore the studio <span>↗</span></Link></Reveal><Reveal className="studio-collage" delay={0.1}><Image src={images.studioA} alt="Creative studio design workspace with colour studies" /><Image src={images.studioB} alt="Graphic design and print production detail" /><span>MAKE<br />THE<br /><em>MEMORY</em></span></Reveal></section>; }
 
 function Funnel() { return <section className="section funnel-section"><SectionHead eyebrow="06 / PERFORMANCE" title={<>From attention<br /><em>to action.</em></>} text="A joined-up growth system that respects the idea, the audience and the numbers." /><div className="funnel" data-testid="performance-funnel">{["Traffic", "Engagement", "Leads", "Conversions", "Retention", "Growth"].map((x, i) => <Reveal className={`funnel-step step-${i}`} key={x} delay={i * 0.07} data-testid={`funnel-step-${x.toLowerCase()}`}><span>0{i + 1}</span><strong>{x}</strong><i>↓</i></Reveal>)}</div></section>; }
 
