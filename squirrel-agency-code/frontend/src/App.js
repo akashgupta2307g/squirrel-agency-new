@@ -168,7 +168,7 @@ const ease = [0.22, 1, 0.36, 1];
 function Image({ src, alt, className = "", eager = false }) { return <img className={className} src={src} alt={alt} loading={eager ? "eager" : "lazy"} fetchpriority={eager ? "high" : undefined} onError={(e) => { e.currentTarget.src = images.workspace; }} />; }
 function Reveal({ children, className = "", delay = 0, ...props }) { return <motion.div className={className} initial={{ opacity: 0, y: 44 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }} transition={{ duration: 0.9, delay, ease }} {...props}>{children}</motion.div>; }
 function SectionHead({ eyebrow, title, text }) { return <div className="section-heading"><Reveal><span className="eyebrow">{eyebrow}</span><h2>{title}</h2></Reveal>{text && <Reveal delay={0.12}><p>{text}</p></Reveal>}</div>; }
-function Logo() { return <img className="logo-mark" src={LOGO} alt="The Squirrel Agency logo" />; }
+function Logo() { return <img className="logo-mark" src={LOGO} alt="Squirrel Agency — creative minds smarter results" />; }
 
 function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -537,6 +537,98 @@ function SmoothScroll({ children }) {
   useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: "instant" }); }, [location.pathname]);
   return children;
 }
-
-function App() { useEffect(() => { document.title = "The Squirrel Agency | Digital Marketing, Web Development & Performance"; }, []); return <MotionConfig reducedMotion="user"><BrowserRouter><SmoothScroll><div className="App"><Routes><Route path="/" element={<Home />} /><Route path="/services" element={<ServicesPage />} /><Route path="/services/:slug" element={<ServiceDetail />} /><Route path="/about" element={<AboutPage />} /><Route path="/work" element={<WorkPage />} /><Route path="/case-studies" element={<CaseStudies />} /><Route path="/case-studies/:id" element={<CaseDetail />} /><Route path="/contact" element={<ContactPage />} /><Route path="/studio/editor" element={<EditorGate><ProjectEditor /></EditorGate>} /><Route path="/insights" element={<InsightsPage />} /><Route path="/insights/landing-page-vs-homepage" element={<ArticlePage />} /><Route path="/insights/marketplace-listing-checklist" element={<ArticleTwo />} /><Route path="/insights/creative-that-converts" element={<ArticleThree />} /><Route path="/privacy" element={<Legal />} /><Route path="/terms" element={<Legal terms />} /><Route path="*" element={<Home />} /></Routes><WhatsAppFloat /></div></SmoothScroll></BrowserRouter></MotionConfig>; }
+function setMeta(name, content, attr = "name") {
+  if (!content) return;
+  let el = document.head.querySelector(`meta[${attr}="${name}"]`);
+  if (!el) {
+    el = document.createElement("meta");
+    el.setAttribute(attr, name);
+    document.head.appendChild(el);
+  }
+  el.setAttribute("content", content);
+}
+function setCanonical(url) {
+  let el = document.head.querySelector('link[rel="canonical"]');
+  if (!el) {
+    el = document.createElement("link");
+    el.setAttribute("rel", "canonical");
+    document.head.appendChild(el);
+  }
+  el.setAttribute("href", url);
+}
+const SITE = "https://thesquirrelagency.com";
+const DEFAULT_DESC = "The Squirrel Agency — creative minds, smarter results. Website development, SEO, Meta & Google Ads, and marketplace listings.";
+function pageSeo(pathname) {
+  const map = {
+    "/": ["The Squirrel Agency | Digital Growth & E-Commerce Agency", DEFAULT_DESC],
+    "/services": ["Services | The Squirrel Agency", "Eleven disciplines under one roof — websites, landing pages, SEO, Meta & Google Ads, creative and marketplace listings."],
+    "/about": ["About | The Squirrel Agency", "Meet The Squirrel Agency — a digital-first creative and performance studio in Kanpur, working worldwide."],
+    "/work": ["Work | The Squirrel Agency", "Selected concept systems and demo case studies from The Squirrel Agency."],
+    "/case-studies": ["Case Studies | The Squirrel Agency", "Proof of practice — demo projects that show how we think about challenge, strategy and delivery."],
+    "/insights": ["Insights | The Squirrel Agency", "Notes from the field on landing pages, marketplace listings and creative that converts."],
+    "/contact": ["Contact | The Squirrel Agency", "Start a project with The Squirrel Agency. Based in Kanpur, working worldwide. Response within 24 hours."],
+    "/privacy": ["Privacy Policy | The Squirrel Agency", "How The Squirrel Agency handles information shared through this website."],
+    "/terms": ["Terms | The Squirrel Agency", "Simple terms for working with The Squirrel Agency."],
+    "/insights/landing-page-vs-homepage": ["Landing Page vs Homepage | Insights", "Why your landing page — not your homepage — closes the sale."],
+    "/insights/marketplace-listing-checklist": ["Marketplace Listing Checklist | Insights", "The marketplace listing checklist we run before every launch."],
+    "/insights/creative-that-converts": ["Creative That Converts | Insights", "Building ads people actually stop for."],
+  };
+  if (map[pathname]) return map[pathname];
+  if (pathname.startsWith("/services/")) {
+    const slug = pathname.replace("/services/", "");
+    const item = services.find((s) => s[3] === slug);
+    if (item) return [`${item[1]} | The Squirrel Agency`, item[2]];
+  }
+  if (pathname.startsWith("/case-studies/")) {
+    return ["Case Study | The Squirrel Agency", "A considered look at the decisions behind the work."];
+  }
+  return map["/"];
+}
+function SeoHead() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    const [title, description] = pageSeo(pathname);
+    document.title = title;
+    setMeta("description", description);
+    setMeta("og:title", title, "property");
+    setMeta("og:description", description, "property");
+    setMeta("og:url", `${SITE}${pathname === "/" ? "/" : pathname}`, "property");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
+    setCanonical(`${SITE}${pathname === "/" ? "/" : pathname}`);
+  }, [pathname]);
+  return null;
+}
+function App() {
+  return (
+    <MotionConfig reducedMotion="user">
+      <BrowserRouter>
+        <SeoHead />
+        <SmoothScroll>
+          <div className="App">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/services" element={<ServicesPage />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/work" element={<WorkPage />} />
+              <Route path="/case-studies" element={<CaseStudies />} />
+              <Route path="/case-studies/:id" element={<CaseDetail />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/studio/editor" element={<EditorGate><ProjectEditor /></EditorGate>} />
+              <Route path="/insights" element={<InsightsPage />} />
+              <Route path="/insights/landing-page-vs-homepage" element={<ArticlePage />} />
+              <Route path="/insights/marketplace-listing-checklist" element={<ArticleTwo />} />
+              <Route path="/insights/creative-that-converts" element={<ArticleThree />} />
+              <Route path="/privacy" element={<Legal />} />
+              <Route path="/terms" element={<Legal terms />} />
+              <Route path="*" element={<Home />} />
+            </Routes>
+            <WhatsAppFloat />
+          </div>
+        </SmoothScroll>
+      </BrowserRouter>
+    </MotionConfig>
+  );
+}
 export default App;
