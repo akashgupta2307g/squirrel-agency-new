@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://thesquirrelagency.com/sitemap.xml
