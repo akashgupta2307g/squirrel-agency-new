@@ -1,10 +1,11 @@
-.App{min-height:100vh;background:var(--bg);color:var(--text)}
+img{max-width:100%;height:auto;content-visibility:auto}
+.hero-visual img,.project-image img,.service-preview img,.studio-collage img,.market-card img,.about-photo img{content-visibility:auto}
 :focus-visible{outline:2px solid var(--blue);outline-offset:5px}
 .light{--text:var(--ink);--muted:var(--ink-muted);--line:var(--ink-line);--surface:#ffffff;--inv:var(--paper);background:var(--paper);color:var(--ink)}
 h2{font:600 clamp(2.9rem,5.6vw,6.4rem)/.94 'Space Grotesk',sans-serif;letter-spacing:-.045em;text-transform:uppercase;margin:0}
 h2 em{font-style:normal;color:var(--blue)}
-.eyebrow{font:500 10px 'DM Mono',monospace;letter-spacing:.14em;color:var(--blue);text-transform:uppercase}
-.button{display:inline-flex;align-items:center;justify-content:center;gap:26px;border:1px solid transparent;padding:16px 20px;font:500 11px 'DM Mono',monospace;text-transform:uppercase;letter-spacing:.08em;transition:background-color .25s,color .25s,border-color .25s,transform .25s;cursor:pointer}
+.eyebrow{font:500 11px 'Space Grotesk',sans-serif;letter-spacing:.12em;color:var(--blue);text-transform:uppercase}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:26px;border:1px solid transparent;padding:16px 20px;font:500 11px 'Space Grotesk',sans-serif;text-transform:uppercase;letter-spacing:.08em;transition:background-color .25s,color .25s,border-color .25s,transform .25s;cursor:pointer}
 .button:hover{transform:translateY(-3px)}
 .button span{font-size:15px;transition:transform .25s}
 .button:hover span{transform:translate(3px,-3px)}
@@ -39,8 +40,8 @@ h2 em{font-style:normal;color:var(--blue)}
 
 .hero{min-height:100vh;padding:180px 4.5vw 5vw;position:relative;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;background:radial-gradient(circle at 80% 26%,rgba(46,75,255,.18),transparent 32%),var(--bg)}
 .hero:after{content:"";position:absolute;inset:0;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E")}
-.hero-copy{position:relative;z-index:2;max-width:1060px}
-.hero-eyebrow{margin-bottom:64px}
+.hero-copy{position:relative;z-index:2;max-width:1060px;padding-top:24px}
+.hero h1{font:600 clamp(4.3rem,8.6vw,10rem)/.88 'Space Grotesk';letter-spacing:-.06em;text-transform:uppercase;margin:0;min-height:2.64em;max-width:1050px}
 .hero h1{font:600 clamp(4.3rem,8.6vw,10rem)/.88 'Space Grotesk';letter-spacing:-.06em;text-transform:uppercase;margin:0;min-height:2.64em;max-width:1050px}
 .hero h1:after{content:"";display:inline-block;width:5px;height:.7em;background:var(--blue);margin-left:10px;vertical-align:baseline}
 .hero h1.done:after{display:none}
@@ -186,10 +187,13 @@ h2 em{font-style:normal;color:var(--blue)}
 .footer-claim em{font-style:normal;color:var(--blue)}
 .footer-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:44px;padding:70px 0;border-bottom:1px solid var(--line)}
 .footer-grid>div{display:flex;flex-direction:column;align-items:flex-start;gap:13px}
-.footer-grid a,.footer-address{color:var(--muted);font-size:14px;transition:color .25s,padding-left .25s}
+.footer-grid a,.footer-address{color:var(--muted);font:400 15px/1.55 'Manrope',sans-serif;letter-spacing:0;transition:color .25s,padding-left .25s}
 .footer-grid a:hover{color:var(--blue-bright);padding-left:6px}
-.footer-grid .eyebrow{margin-bottom:12px}
-.footer-bottom{display:flex;justify-content:space-between;padding-top:26px;font:10px 'DM Mono';color:var(--muted);letter-spacing:.06em}
+.footer-label{font:500 12px 'Space Grotesk',sans-serif;letter-spacing:.1em;text-transform:uppercase;color:var(--blue-bright);margin-bottom:14px}
+.footer-contact a{font:500 16px/1.45 'Space Grotesk',sans-serif;letter-spacing:-.01em;color:var(--text)}
+.footer-contact a:hover{color:var(--blue-bright)}
+.footer-address{display:block;margin-top:6px;color:var(--muted);font:400 14px/1.5 'Manrope',sans-serif}
+.footer-bottom{display:flex;justify-content:space-between;padding-top:26px;font:400 13px/1.5 'Manrope',sans-serif;color:var(--muted);letter-spacing:0}
 .footer-bottom div{display:flex;gap:26px}
 .footer-bottom a:hover{color:var(--text)}
 
@@ -252,12 +256,12 @@ h2 em{font-style:normal;color:var(--blue)}
 
 .contact-layout{padding:130px 4.5vw 160px;display:grid;grid-template-columns:.68fr 1.32fr;gap:7vw}
 .contact-details{display:flex;flex-direction:column;align-items:flex-start;gap:16px;padding-top:10px}
-.contact-note{color:var(--muted);font-size:14px;line-height:1.6;max-width:320px;margin:8px 0 0}
-.contact-details .eyebrow{margin-bottom:20px}
-.contact-details a{font:500 clamp(20px,2vw,28px) 'Space Grotesk';letter-spacing:-.02em;transition:color .25s;word-break:break-word}
+.contact-note{color:var(--muted);font:400 15px/1.6 'Manrope',sans-serif;max-width:340px;margin:8px 0 0}
+.contact-details .footer-label{margin-bottom:20px}
+.contact-details a{font:500 clamp(20px,2vw,28px)/1.2 'Space Grotesk';letter-spacing:-.02em;transition:color .25s;word-break:break-word;color:var(--text)}
 .contact-details a[data-testid="contact-email"]{font-size:clamp(15px,1.35vw,19px);letter-spacing:0}
 .contact-details a:hover{color:var(--blue)}
-.contact-details span:last-child{color:var(--muted);font:11px 'DM Mono';margin-top:16px;letter-spacing:.08em}
+.contact-details .footer-address,.contact-details > span:not(.footer-label){color:var(--muted);font:400 15px/1.5 'Manrope',sans-serif;margin-top:10px;letter-spacing:0}
 .contact-form{border-top:1px solid var(--line);padding-top:28px}
 .form-row{display:grid;grid-template-columns:1fr 1fr;gap:26px}
 label{display:flex;flex-direction:column;gap:9px;font:10px 'DM Mono';color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:26px}
@@ -306,7 +310,6 @@ textarea::placeholder,input::placeholder{color:#8a8a85}
 .mobile-nav{position:absolute;top:76px;left:0;right:0;background:#0e0e12;border-bottom:1px solid var(--line);padding:24px 6vw 32px;display:flex;flex-direction:column;gap:18px}
 .mobile-nav a{font:500 20px 'Space Grotesk'}
 .hero{min-height:auto;padding:140px 6vw 50px}
-.hero-eyebrow{margin-bottom:44px}
 .hero h1{font-size:clamp(3rem,14vw,6rem);min-height:4.6em;line-height:.9}
 .hero-bottom{display:block;margin-top:36px}
 .hero-bottom p{font-size:14px;margin-bottom:24px}
