@@ -95,6 +95,24 @@ h2 em{font-style:normal;color:var(--blue)}
 .project-meta p{color:var(--muted);font-size:14px;line-height:1.55;margin:0;max-width:430px}
 .project-side{display:flex;flex-direction:column;align-items:flex-end;gap:8px;font:10px 'DM Mono';color:var(--muted);white-space:nowrap}
 
+.clients-section{border-top:1px solid var(--line)}
+.clients-grid{display:grid;grid-template-columns:1fr;gap:48px}
+.client-card{display:grid;grid-template-columns:280px 1fr;gap:4vw;align-items:start;padding-bottom:48px;border-bottom:1px solid var(--line)}
+.client-card:last-child{border-bottom:0;padding-bottom:0}
+.client-logo-wrap{background:#f7f6f2;border:1px solid var(--ink-line);aspect-ratio:1;display:flex;align-items:center;justify-content:center;padding:28px;overflow:hidden}
+.client-logo{width:100%;height:100%;object-fit:contain;filter:none}
+.client-monogram{font:700 72px/1 'Space Grotesk';letter-spacing:-.06em;color:var(--blue)}
+.client-sector{font:500 11px 'Space Grotesk';letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+.client-body h3{font:600 clamp(28px,3.2vw,44px)/1.05 'Space Grotesk';letter-spacing:-.04em;text-transform:uppercase;margin:14px 0 18px}
+.client-summary{font:500 17px/1.55 'Manrope';color:var(--ink);margin:0 0 16px;max-width:640px}
+.client-story{color:var(--muted);font-size:15px;line-height:1.7;margin:0 0 22px;max-width:640px}
+.client-work{margin:0 0 28px;padding:0;list-style:none;display:grid;gap:10px}
+.client-work li{font:400 14px/1.45 'Manrope';color:var(--ink-muted);padding-left:18px;position:relative}
+.client-work li:before{content:"";position:absolute;left:0;top:.55em;width:8px;height:8px;background:var(--blue)}
+.client-results{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--ink-line);padding-top:22px}
+.client-result strong{display:block;font:600 clamp(22px,2.4vw,34px)/1 'Space Grotesk';letter-spacing:-.04em;color:var(--blue);margin-bottom:8px}
+.client-result span{font:400 13px/1.45 'Manrope';color:var(--muted)}
+
 .services-interaction{display:grid;grid-template-columns:1fr 1.02fr;gap:6vw;align-items:start}
 .service-list{border-top:1px solid var(--line);scroll-margin-top:100px}
 .service-row{display:grid;grid-template-columns:46px 1fr 28px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line);transition:color .25s,padding-left .25s;text-decoration:none;color:inherit;width:100%;text-align:left;background:none;border-left:0;border-right:0;border-top:0;font-family:inherit;cursor:pointer}
@@ -327,6 +345,11 @@ textarea::placeholder,input::placeholder{color:#8a8a85}
 .project-grid{display:block;padding-bottom:0}
 .project-grid>div:nth-child(even) .project-card{transform:none}
 .project-grid>div{margin-bottom:52px}
+.client-card{grid-template-columns:1fr;gap:24px;padding-bottom:40px}
+.client-logo-wrap{max-width:220px;aspect-ratio:1.15}
+.client-results{grid-template-columns:1fr;gap:16px}
+.client-monogram{font-size:56px}
+  
 .services-interaction{display:flex;flex-direction:column;gap:30px}
 .service-list{order:0;padding-top:8px;scroll-margin-top:90px}
 .service-list .service-row:first-child{scroll-margin-top:90px}
