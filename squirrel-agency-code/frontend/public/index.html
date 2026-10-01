@@ -8,7 +8,8 @@
             name="description"
             content="The Squirrel Agency — creative minds, smarter results. Full-stack digital growth &amp; e-commerce agency for website development, SEO, Meta &amp; Google Ads, and marketplace listings."
         />
-
+        <meta name="application-name" content="The Squirrel Agency" />
+        <meta name="apple-mobile-web-app-title" content="The Squirrel Agency" />
         <meta name="author" content="The Squirrel Agency" />
         <meta
             name="keywords"
@@ -16,6 +17,7 @@
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://thesquirrelagency.com/" />
+        <link rel="home" href="https://thesquirrelagency.com/" title="The Squirrel Agency" />
         <meta property="og:site_name" content="The Squirrel Agency" />
         <meta property="og:title" content="The Squirrel Agency | Digital Growth &amp; E-Commerce Agency" />
         <meta
@@ -46,6 +48,16 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
         <title>The Squirrel Agency | Digital Growth &amp; E-Commerce Agency</title>
+        <!-- Google site name: standalone WebSite schema (preferred by Google) -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebSite",
+                "name": "The Squirrel Agency",
+                "alternateName": ["Squirrel Agency", "The Squirrel Agency Kanpur"],
+                "url": "https://thesquirrelagency.com/"
+            }
+        </script>
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
@@ -54,7 +66,7 @@
                         "@type": "Organization",
                         "@id": "https://thesquirrelagency.com/#organization",
                         "name": "The Squirrel Agency",
-                        "alternateName": "Squirrel Agency",
+                        "alternateName": ["Squirrel Agency", "thesquirrelagency"],
                         "url": "https://thesquirrelagency.com/",
                         "logo": {
                             "@type": "ImageObject",
@@ -90,6 +102,7 @@
                         "@id": "https://thesquirrelagency.com/#webpage",
                         "url": "https://thesquirrelagency.com/",
                         "name": "The Squirrel Agency | Digital Growth & E-Commerce Agency",
+                        "alternateName": "Squirrel Agency",
                         "isPartOf": { "@id": "https://thesquirrelagency.com/#website" },
                         "about": { "@id": "https://thesquirrelagency.com/#organization" },
                         "description": "Creative minds, smarter results. Website development, SEO, Meta & Google Ads, and marketplace listings."
