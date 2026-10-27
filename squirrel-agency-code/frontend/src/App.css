@@ -112,6 +112,50 @@ h2 em{font-style:normal;color:var(--blue)}
 .client-results{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;border-top:1px solid var(--ink-line);padding-top:22px}
 .client-result strong{display:block;font:600 clamp(22px,2.4vw,34px)/1 'Space Grotesk';letter-spacing:-.04em;color:var(--blue);margin-bottom:8px}
 .client-result span{font:400 13px/1.45 'Manrope';color:var(--muted)}
+.client-logo-link{transition:transform .3s,border-color .3s;color:inherit}
+.client-logo-link:hover{transform:translateY(-4px);border-color:var(--blue)}
+.client-body h3 a{color:inherit;text-decoration:none}
+.client-body h3 a:hover{color:var(--blue)}
+.client-read-link{margin-top:8px}
+
+.brand-logos-section{border-top:1px solid var(--line)}
+.brand-logo-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px}
+.brand-logo-grid.compact{grid-template-columns:repeat(3,1fr);max-width:720px}
+.brand-logo-tile{display:flex;flex-direction:column;gap:14px;padding:22px;border:1px solid var(--ink-line);background:#faf9f6;text-decoration:none;color:var(--ink);transition:border-color .25s,transform .25s,box-shadow .25s;min-height:100%}
+.brand-logo-tile:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:0 18px 40px rgba(10,10,12,.06)}
+.brand-logo-img{width:100%;aspect-ratio:1;object-fit:contain;background:#fff;border:1px solid var(--ink-line)}
+.brand-logo-name{font:600 15px/1.2 'Space Grotesk';letter-spacing:-.02em;text-transform:uppercase}
+.brand-logo-cta{font:10px 'DM Mono';letter-spacing:.1em;text-transform:uppercase;color:var(--blue)}
+
+.brand-detail .brand-hero-top{display:flex;gap:28px;align-items:center;margin:18px 0 28px}
+.brand-hero-logo{width:120px;height:120px;object-fit:contain;border:1px solid var(--line);background:#fff;flex-shrink:0}
+.brand-hero-lede{font:500 clamp(1.2rem,2.4vw,1.85rem)/1.25 'Space Grotesk';letter-spacing:-.03em;margin:12px 0 0;max-width:720px;color:var(--text)}
+.brand-block{padding:90px 4.5vw;border-top:1px solid var(--line);max-width:1100px}
+.brand-block h2{margin-bottom:28px}
+.brand-block p{color:var(--muted);font-size:16px;line-height:1.75;margin:0 0 16px;max-width:760px}
+.brand-lead{font-size:18px!important;color:var(--ink)!important;max-width:820px!important}
+.brand-points,.brand-pillars,.brand-exec{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:28px}
+.brand-points article,.brand-pillars article,.brand-exec article{padding:24px;border:1px solid var(--line);background:#fff}
+.brand-points h3,.brand-pillars h3,.brand-exec h3{font:600 18px/1.25 'Space Grotesk';letter-spacing:-.02em;margin:0 0 12px;text-transform:none}
+.brand-services{display:flex;flex-wrap:wrap;gap:10px;list-style:none;padding:0;margin:0}
+.brand-services li{font:11px 'DM Mono';letter-spacing:.06em;text-transform:uppercase;border:1px solid var(--line);padding:10px 14px;color:var(--ink)}
+.brand-process{list-style:none;padding:0;margin:0;display:grid;gap:18px}
+.brand-process li{display:grid;grid-template-columns:56px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--line)}
+.brand-process span{font:600 18px 'Space Grotesk';color:var(--blue)}
+.brand-process strong{display:block;font:600 18px 'Space Grotesk';margin-bottom:6px}
+.brand-process p{margin:0}
+.brand-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.brand-metric{padding:28px 22px;border:1px solid var(--line);background:#fff}
+.brand-metric strong{display:block;font:600 clamp(28px,3vw,42px)/1 'Space Grotesk';letter-spacing:-.04em;margin-bottom:12px}
+.brand-metric b{display:block;font:600 15px 'Space Grotesk';margin-bottom:8px}
+.brand-metric span{font:400 14px/1.5 'Manrope';color:var(--muted)}
+.brand-takeaways{margin:0;padding:0;list-style:none;display:grid;gap:14px;max-width:760px}
+.brand-takeaways li{padding:16px 0 16px 22px;border-bottom:1px solid var(--line);position:relative;color:var(--ink);font-size:16px;line-height:1.55}
+.brand-takeaways li:before{content:"";position:absolute;left:0;top:1.35em;width:8px;height:8px;background:var(--blue)}
+.brand-quote{padding:100px 4.5vw;border-top:1px solid var(--line);background:#0f0f13;color:#f5f4ef}
+.brand-quote blockquote{font:500 clamp(1.4rem,3vw,2.4rem)/1.3 'Space Grotesk';letter-spacing:-.03em;margin:0 0 28px;max-width:900px}
+.brand-quote cite{font:11px 'DM Mono';letter-spacing:.1em;text-transform:uppercase;color:#9db0ff;font-style:normal}
+.brand-more{max-width:none}
 
 .services-interaction{display:grid;grid-template-columns:1fr 1.02fr;gap:6vw;align-items:start}
 .service-list{border-top:1px solid var(--line);scroll-margin-top:100px}
@@ -348,6 +392,12 @@ textarea::placeholder,input::placeholder{color:#8a8a85}
 .client-card{grid-template-columns:1fr;gap:24px;padding-bottom:40px}
 .client-logo-wrap{max-width:220px;aspect-ratio:1.15}
 .client-results{grid-template-columns:1fr;gap:16px}
+.brand-logo-grid{grid-template-columns:1fr 1fr;gap:14px}
+.brand-logo-grid.compact{grid-template-columns:1fr 1fr}
+.brand-points,.brand-pillars,.brand-exec,.brand-metrics{grid-template-columns:1fr}
+.brand-detail .brand-hero-top{flex-direction:column;align-items:flex-start}
+.brand-block{padding:64px 6vw}
+.brand-quote{padding:72px 6vw}
 .client-monogram{font-size:56px}
   
 .services-interaction{display:flex;flex-direction:column;gap:30px}
