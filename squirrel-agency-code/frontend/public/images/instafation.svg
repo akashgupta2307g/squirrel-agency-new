@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Instafation">
+  <rect width="240" height="240" fill="#F7F3FF"/>
+  <rect x="70" y="58" width="100" height="100" rx="28" fill="none" stroke="#5B2BE0" stroke-width="4"/>
+  <circle cx="120" cy="108" r="28" fill="none" stroke="#5B2BE0" stroke-width="4"/>
+  <circle cx="148" cy="80" r="6" fill="#5B2BE0"/>
+  <path d="M88 168h64" stroke="#5B2BE0" stroke-width="3" stroke-linecap="round" opacity=".4"/>
+  <text x="120" y="208" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="2.5" fill="#2A1468">INSTAFATION</text>
+</svg>
