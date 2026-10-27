@@ -190,8 +190,44 @@ function SectionHead({ title, text }) {
     </div>
   );
 }
-function Logo() { return <img className="logo-mark" src={LOGO} alt="Squirrel Agency — creative minds smarter results" width="160" height="60" decoding="async" />; }
-
+function Logo() { return <img className="logo-mark" src={LOGO} alt="The Squirrel Agency" width="160" height="60" decoding="async" />; }
+const faqs = [
+  ["What is The Squirrel Agency?", "The Squirrel Agency is a digital-first creative, e-commerce and performance marketing studio founded by Akash Gupta. Based in Kanpur, India and working remote-first worldwide, we help brands with website development, SEO, Meta Ads, Google Ads, creative production, and marketplace listings on Amazon, Flipkart and Myntra."],
+  ["Where is The Squirrel Agency based?", "The Squirrel Agency is based in M Block, Kidwai Nagar, Kanpur Nagar, Uttar Pradesh, India. We operate as a remote-first studio and serve clients across India and worldwide."],
+  ["Who founded The Squirrel Agency?", "The Squirrel Agency was founded by Akash Gupta, Founder and Creative Strategist. He brings together strategy, design, development and performance marketing so brands are not just seen — they are remembered and measured."],
+  ["What services does The Squirrel Agency offer?", "Eleven disciplines under one roof: website development, landing page development, SEO, Meta Ads, Google Ads, campaign management, poster design, UGC video creation, and Amazon, Flipkart and Myntra product listing optimisation."],
+  ["Is The Squirrel Agency the same as other companies named Squirrel?", "No. The Squirrel Agency (thesquirrelagency.com) is the Kanpur-based digital growth and e-commerce agency founded by Akash Gupta. It is a distinct business from other similarly named studios or tech agencies elsewhere in India or abroad."],
+  ["How can I contact The Squirrel Agency?", "Call +91 92774 77048, email info.thesquirrelagency@gmail.com, message @thesquirrel_agency on Instagram, or use the contact form. Every enquiry gets a response within 24 hours."],
+];
+function FaqSection() {
+  const [open, setOpen] = useState(0);
+  return (
+    <section className="section light faq-section" data-testid="faq-section" aria-labelledby="faq-heading">
+      <SectionHead
+        eyebrow="FAQ / AEO"
+        title={<>Answers about<br /><em>The Squirrel Agency.</em></>}
+        text="Clear facts for people — and for search and answer engines that need to know who we are, where we work, and what we do."
+      />
+      <div className="faq-list">
+        {faqs.map(([q, a], i) => (
+          <div className={`faq-item ${open === i ? "open" : ""}`} key={q}>
+            <button
+              type="button"
+              className="faq-question"
+              aria-expanded={open === i}
+              onClick={() => setOpen(open === i ? -1 : i)}
+              data-testid={`faq-q-${i}`}
+            >
+              <span>{q}</span>
+              <i aria-hidden="true">{open === i ? "−" : "+"}</i>
+            </button>
+            {open === i && <p className="faq-answer" data-testid={`faq-a-${i}`}>{a}</p>}
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -233,10 +269,10 @@ function Hero() {
   const onMove = (e) => { if (reduce) return; setTilt({ x: e.clientX / window.innerWidth - 0.5, y: e.clientY / window.innerHeight - 0.5 }); };
   return <section className="hero" ref={heroRef} onMouseMove={onMove}>
     <div className="hero-copy">
-    
+          <p className="eyebrow hero-brand" data-testid="hero-brand">THE SQUIRREL AGENCY</p>
       <h1 className={done ? "done" : ""} data-testid="hero-headline">{text}<span className="reveal-space">&nbsp;</span></h1>
       <motion.div className="hero-bottom" initial={{ opacity: 0, y: 26 }} animate={done ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, ease }}>
-        <p data-testid="hero-subheading">Technology, creativity and performance marketing for ambitious brands — websites, campaigns, SEO and marketplace growth under one roof in Kanpur, working worldwide.</p>
+        <p className="entity-definition" data-testid="hero-subheading">The Squirrel Agency builds technology, creativity and performance marketing for ambitious brands — websites, campaigns, SEO and marketplace growth under one roof in Kanpur, working worldwide.</p>
         <div className="hero-actions"><Link className="button button-accent" to="/contact" data-testid="hero-start-project">Start a project <span>↗</span></Link><Link className="button button-quiet" to="/work" data-testid="hero-view-work">View our work <span>↗</span></Link></div>
       </motion.div>
     </div>
@@ -347,11 +383,10 @@ function Process() { return <section className="section light process-section"><
 function Testimonials() { return <section className="section testimonials-section"><SectionHead title={<>Trusted by<br /><em>growth brands.</em></>} text="Words from the brands we’ve helped scale — SM Novamart, Zerviq, Home Shine and partners who care about sales, not just visuals." /><div className="testimonial-grid">{testimonials.map((t, i) => <Reveal className="testimonial" key={t[2]} delay={i * 0.08} data-testid={`testimonial-${i + 1}`}><span className="quote-mark">“</span><p>{t[0]}</p><div className="testimonial-who"><span className="monogram">{t[1]}</span><div><strong>{t[2]}</strong><span>{t[3]}</span></div></div></Reveal>)}</div></section>; }
 function Insights() { return <section className="section light insights-section"><SectionHead eyebrow="10 / INSIGHTS" title={<>Notes from<br /><em>the field.</em></>} text="Short field notes on landing pages, marketplace listings and creative that converts — practical thinking from the work, not theory decks." /><div className="insight-grid">{insights.map((t, i) => <Reveal key={t[1]} delay={i * 0.08}>{t[3] ? <Link to={t[3]} className="insight-card insight-linked" data-testid={`insight-card-${i + 1}`}><span className="insight-tag">{t[0]}</span><h3>{t[1]}</h3><div className="insight-meta"><span>{t[2]}</span><span>READ NOW ↗</span></div></Link> : <div className="insight-card" data-testid={`insight-card-${i + 1}`}><span className="insight-tag">{t[0]}</span><h3>{t[1]}</h3><div className="insight-meta"><span>{t[2]}</span><span>COMING SOON</span></div></div>}</Reveal>)}</div></section>; }
 
-function AboutTeaser() { return <section className="section light about-teaser"><Reveal><h2>We don’t just<br />make things look good.<br /><em>We make them work.</em></h2></Reveal><Reveal delay={0.12}><p>The Squirrel Agency is a digital-first creative and performance studio for ambitious brands that want their next chapter to matter — founded in Kanpur, built remote-first, and obsessed with clarity over theatre.</p><Link to="/about" className="button button-outline" data-testid="meet-agency-link">Meet the agency <span>↗</span></Link></Reveal></section>; }
+function AboutTeaser() { return <section className="section light about-teaser"><Reveal><h2>We don’t just<br />make things look good.<br /><em>We make them work.</em></h2></Reveal><Reveal delay={0.12}><p className="entity-definition">The Squirrel Agency is a digital-first creative and performance studio for ambitious brands that want their next chapter to matter — founded by Akash Gupta in Kanpur, built remote-first, and obsessed with clarity over theatre. Official site: thesquirrelagency.com.</p><Link to="/about" className="button button-outline" data-testid="meet-agency-link">Meet the agency <span>↗</span></Link></Reveal></section>; }
 function CTA() { return <section className="final-cta"><Reveal><h2>Let’s build<br /><em>something</em><br />remarkable.</h2><p>Tell us what you’re building, what is not working, or what you want to make possible. Every enquiry gets a response within 24 hours — call, mail or WhatsApp.</p><Link to="/contact" className="button button-accent" data-testid="final-start-project">Start a project <span>↗</span></Link></Reveal></section>; }
 function PageIntro({ title, text }) { return <section className="page-intro"><Reveal><h1>{title}</h1>{text && <p>{text}</p>}</Reveal></section>; }
-function Home() { return <><Header /><main><Hero /><Marquee /><Stats /><ClientsSection /><WorkSection /><ServicesSection /><StudioBand /><Funnel /><Marketplace /><Process /><Testimonials /><Insights /><AboutTeaser /><CTA /></main><Footer /></>; }
-function ServicesPage() { return <><Header /><main><PageIntro eyebrow="02 / CAPABILITIES" title={<>The right people<br /><em>for the whole picture.</em></>} text="We bring the disciplines together early — strategy, design, development, media and marketplace — so the output feels like one thought, not eleven handoffs. Pick a service below to see how we approach it." /><ServicesSection /><section className="service-manifesto"><Reveal><h2>One team.<br /><em>More momentum.</em></h2><p className="manifesto-text">Most brands lose time between agencies, freelancers and platforms. We keep website, creative and performance in the same room so decisions stay fast, the story stays consistent, and every rupee of attention has a job.</p><Link to="/contact" className="button button-accent" data-testid="services-cta">Start a project <span>↗</span></Link></Reveal></section></main><Footer /></>; }
+function Home() { return <><Header /><main><Hero /><Marquee /><Stats /><ClientsSection /><WorkSection /><ServicesSection /><StudioBand /><Funnel /><Marketplace /><Process /><Testimonials /><Insights /><AboutTeaser /><FaqSection /><CTA /></main><Footer /></>; }
 function ServiceDetail() {
   const { slug } = useParams();
   const index = Math.max(0, services.findIndex((s) => s[3] === slug));
@@ -397,7 +432,7 @@ function ServiceDetail() {
   );
 }
 
-function AboutPage() { return <><Header /><main><PageIntro title={<>We make digital<br /><em>matter.</em></>} text="The Squirrel Agency is a digital-first creative, technology and performance marketing studio helping ambitious brands — including SM Novamart, Zerviq, Home Shine and Instafation — build a stronger presence and turn attention into sales." /><section className="light about-story"><Reveal className="about-photo"><Image src={images.office} alt="Modern creative agency interior" /></Reveal><Reveal delay={0.1}><h2>Ideas should<br /><em>do something.</em></h2><p>We believe the best digital work creates a feeling, removes friction and leaves a measurable trace. That means strategy without theatre, design with a point of view and technology that gets out of the way. We would rather ship one sharp system than ten disconnected assets.</p><p>Based in Kanpur and working remote-first worldwide, we stay close to the work: founder-led attention, clear communication, and a bias toward clarity over volume. Our client partnerships are built around sales outcomes — marketplace rankings, conversion and campaign ROAS — not vanity metrics.</p><div className="beliefs"><span>Curiosity over convention</span><span>Clarity is a creative act</span><span>Every detail earns its place</span><span>Performance without killing the idea</span></div></Reveal></section><ClientsSection /><section className="founder"><Reveal><h2>Akash<br /><em>Gupta.</em></h2><span className="founder-title">Founder & Creative Strategist</span></Reveal><Reveal className="founder-copy" delay={0.1}><Image src={images.founder} alt="Akash Gupta, Founder & Creative Strategist of The Squirrel Agency" /><p>Akash Gupta is the founder of The Squirrel Agency, a digital-first creative and performance marketing agency built around one simple belief — brands should not just be seen, they should be remembered.</p><p>With a strong interest in technology, creativity and digital growth, Akash brings together strategy, design, development and performance marketing to help businesses build a stronger digital presence and turn attention into measurable growth.</p><p>The studio is intentionally small and senior: fewer layers, faster decisions, and work that stays accountable from the first workshop to the weekly optimisation loop.</p></Reveal></section><CTA /></main><Footer /></>; }
+function AboutPage() { return <><Header /><main><PageIntro title={<>We make digital<br /><em>matter.</em></>} text="The Squirrel Agency is a digital-first creative, technology and performance marketing studio helping ambitious brands — including SM Novamart, Zerviq, Home Shine and Instafation — build a stronger presence and turn attention into sales." /><section className="light about-story"><Reveal className="about-photo"><Image src={images.office} alt="The Squirrel Agency studio — creative agency interior" /></Reveal><Reveal delay={0.1}><h2>Ideas should<br /><em>do something.</em></h2><p className="entity-definition">The Squirrel Agency (thesquirrelagency.com) is the official digital growth and e-commerce agency founded by Akash Gupta in Kanpur, India — not to be confused with other similarly named studios. We combine creative, technology and performance so brands grow with clarity.</p><p>We believe the best digital work creates a feeling, removes friction and leaves a measurable trace. That means strategy without theatre, design with a point of view and technology that gets out of the way. We would rather ship one sharp system than ten disconnected assets.</p><p>Based in Kanpur and working remote-first worldwide, we stay close to the work: founder-led attention, clear communication, and a bias toward clarity over volume. Our client partnerships are built around sales outcomes — marketplace rankings, conversion and campaign ROAS — not vanity metrics.</p><div className="beliefs"><span>Curiosity over convention</span><span>Clarity is a creative act</span><span>Every detail earns its place</span><span>Performance without killing the idea</span></div></Reveal></section><ClientsSection /><section className="founder"><Reveal><h2>Akash<br /><em>Gupta.</em></h2><span className="founder-title">Founder & Creative Strategist</span></Reveal><Reveal className="founder-copy" delay={0.1}><Image src={images.founder} alt="Akash Gupta, Founder & Creative Strategist of The Squirrel Agency" /><p>Akash Gupta is the founder of The Squirrel Agency, a digital-first creative and performance marketing agency built around one simple belief — brands should not just be seen, they should be remembered.</p><p>With a strong interest in technology, creativity and digital growth, Akash brings together strategy, design, development and performance marketing to help businesses build a stronger digital presence and turn attention into measurable growth.</p><p>The studio is intentionally small and senior: fewer layers, faster decisions, and work that stays accountable from the first workshop to the weekly optimisation loop.</p></Reveal></section><FaqSection /><CTA /></main><Footer /></>; }
 function WorkPage() { const [filter, setFilter] = useState("All"); return <><Header /><main><PageIntro title={<>Selected work.<br /><em>Sales, not slides.</em></>} text="Brands we’ve partnered with — SM Novamart, Zerviq, Home Shine, Instafation — and the growth systems that lifted their sales." /><ClientsSection /><div className="light" style={{ borderTop: "1px solid var(--ink-line)" }}><div className="work-filter" style={{ paddingTop: "40px" }}>{["All", "Websites", "Marketing", "Creative", "E-commerce"].map((f) => <button key={f} className={filter === f ? "selected" : ""} onClick={() => setFilter(f)} data-testid={`filter-${f.toLowerCase().replaceAll(" ", "-")}`}>{f}</button>)}</div><WorkSection compact filter={filter} /></div><CTA /></main><Footer /></>; }
 function CaseStudies() { const items = useProjects(); return <><Header /><main><PageIntro title={<>Proof of<br /><em>practice.</em></>} text="Client work and growth stories — how we rebuilt catalogues, creatives and campaigns to unlock real sales for brands we partner with." /><section className="light case-list" style={{ paddingTop: "110px" }}>{items.map((p, i) => <Reveal key={p.id || p.name} delay={0.05}><Link to={`/case-studies/${p.id || i + 1}`} className="case-row" data-testid={`case-study-${i + 1}`}><span>{String(i + 1).padStart(2, "0")}</span><Image src={p.image} alt={`${p.name} case study`} /><div><span className="project-type">{p.type}</span><h2>{p.name}</h2><p>{p.desc}</p><strong>Read case study ↗</strong></div></Link></Reveal>)}</section><CTA /></main><Footer /></>; }
 function CaseDetail() { const { id } = useParams(); const items = useProjects(); const p = items.find((item, index) => String(item.id || index + 1) === id) || items[0]; const blocks = [["CHALLENGE", p.challenge || "Make a complex offer feel simple, desirable and ready for its next audience."], ["STRATEGY", p.strategy || "Build one connected system across story, experience, creative and performance."], ["DESIGN & BUILD", "A system of type, colour and motion designed to feel considered — then engineered to load fast and convert."], ["MARKETING", "Launch creative and performance media working from the same playbook, measured week by week."], ["RESULTS", p.outcome || "Clear sales momentum — stronger visibility, higher conversion and a growth system the brand can keep running."]]; return <><Header /><main><PageIntro title={<>{p.name.split(" / ")[0]}<br /><em>in practice.</em></>} text="How we turned attention into sales — challenge, strategy and outcomes from the partnership." /><section className="light case-detail-cover"><Reveal><Image src={p.image} alt={`${p.name} feature image`} /></Reveal></section><section className="light case-detail-copy"><Reveal><h2>Sales that<br /><em>compound.</em></h2><p className="case-overview-text">{p.desc}</p></Reveal><Reveal delay={0.1} className="case-blocks">{blocks.map(([label, text]) => <p key={label}><b>{label}</b> {text}</p>)}</Reveal></section><section className="light case-gallery"><Reveal><Image src={p.image} alt={`${p.name} gallery composition one`} /></Reveal><Reveal delay={0.08}><Image src={p.image} alt={`${p.name} gallery composition two`} className="gallery-alt" /></Reveal></section><CTA /></main><Footer /></>; }
@@ -597,12 +632,12 @@ function setCanonical(url) {
   el.setAttribute("href", url);
 }
 const SITE = "https://thesquirrelagency.com";
-const DEFAULT_DESC = "The Squirrel Agency — creative minds, smarter results. Website development, SEO, Meta & Google Ads, and marketplace listings.";
-function pageSeo(pathname) {
+const DEFAULT_DESC = "The Squirrel Agency is a digital-first creative and e-commerce agency founded by Akash Gupta in Kanpur — websites, SEO, Meta & Google Ads, and marketplace listings.";
+  function pageSeo(pathname) {
   const map = {
     "/": ["The Squirrel Agency | Digital Growth & E-Commerce Agency", DEFAULT_DESC],
-    "/services": ["Services | The Squirrel Agency", "Eleven disciplines under one roof — websites, landing pages, SEO, Meta & Google Ads, creative and marketplace listings."],
-    "/about": ["About | The Squirrel Agency", "Meet The Squirrel Agency — a digital-first creative and performance studio in Kanpur, working worldwide."],
+    "/services": ["Services | The Squirrel Agency", "Eleven disciplines under one roof — websites, landing pages, SEO, Meta & Google Ads, creative and marketplace listings from The Squirrel Agency."],
+    "/about": ["About The Squirrel Agency | Founded by Akash Gupta in Kanpur", "Meet The Squirrel Agency — digital-first creative and performance studio founded by Akash Gupta in Kanpur, working worldwide."],
     "/work": ["Work | The Squirrel Agency", "Selected concept systems and demo case studies from The Squirrel Agency."],
     "/case-studies": ["Case Studies | The Squirrel Agency", "Proof of practice — demo projects that show how we think about challenge, strategy and delivery."],
     "/insights": ["Insights | The Squirrel Agency", "Notes from the field on landing pages, marketplace listings and creative that converts."],
