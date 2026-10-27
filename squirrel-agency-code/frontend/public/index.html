@@ -3,38 +3,37 @@
     <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <meta name="theme-color" content="#000000" />
+                  <meta name="theme-color" content="#000000" />
         <meta
             name="description"
-            content="The Squirrel Agency — creative minds, smarter results. Full-stack digital growth &amp; e-commerce agency for website development, SEO, Meta &amp; Google Ads, and marketplace listings."
+            content="The Squirrel Agency is a digital-first creative, e-commerce and performance marketing studio founded by Akash Gupta in Kanpur, India. Website development, SEO, Meta &amp; Google Ads, and Amazon, Flipkart &amp; Myntra marketplace listings."
         />
         <meta name="application-name" content="The Squirrel Agency" />
         <meta name="apple-mobile-web-app-title" content="The Squirrel Agency" />
         <meta name="author" content="The Squirrel Agency" />
+        <meta name="publisher" content="The Squirrel Agency" />
         <meta
             name="keywords"
-            content="The Squirrel Agency, digital marketing agency, website development, SEO, Meta Ads, Google Ads, Amazon listing, Flipkart listing, Myntra listing, Kanpur agency"
-        />
-        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+          content="The Squirrel Agency, The Squirrel Agency Kanpur, Akash Gupta, digital marketing agency India, website development, SEO, Meta Ads, Google Ads, Amazon listing, Flipkart listing, Myntra listing, e-commerce agency"        />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href="https://thesquirrelagency.com/" />
         <link rel="home" href="https://thesquirrelagency.com/" title="The Squirrel Agency" />
         <meta property="og:site_name" content="The Squirrel Agency" />
         <meta property="og:title" content="The Squirrel Agency | Digital Growth &amp; E-Commerce Agency" />
         <meta
             property="og:description"
-            content="Creative minds, smarter results. Websites, SEO, Meta &amp; Google Ads, and marketplace growth under one roof."
-        />
+            content="The Squirrel Agency — creative minds, smarter results. Digital-first creative and performance studio in Kanpur for websites, SEO, ads and marketplace growth."        />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://thesquirrelagency.com/" />
         <meta property="og:image" content="https://thesquirrelagency.com/og-image.png" />
-        <meta property="og:image:alt" content="Squirrel Agency — creative minds smarter results" />
+        <meta property="og:image:alt" content="The Squirrel Agency — creative minds smarter results" />
         <meta property="og:locale" content="en_IN" />
         <meta name="twitter:card" content="summary" />
-        <meta name="twitter:title" content="The Squirrel Agency | Digital Growth &amp; E-Commerce Agency" />
+        <meta name="twitter:card" content="summary_large_image" />
         <meta
             name="twitter:description"
-            content="Creative minds, smarter results. Websites, SEO, ads and marketplace listings."
-        />
+            content="The Squirrel Agency — creative minds, smarter results. Websites, SEO, ads and marketplace listings."
+            />
         <meta name="twitter:image" content="https://thesquirrelagency.com/og-image.png" />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
@@ -48,14 +47,20 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
         <title>The Squirrel Agency | Digital Growth &amp; E-Commerce Agency</title>
-        <!-- Google site name: standalone WebSite schema (preferred by Google) -->
-        <script type="application/ld+json">
+<!--
+          Google site name: ONE WebSite node only (duplicate WebSite blocks reduce confidence).
+          Docs: https://developers.google.com/search/docs/appearance/site-names
+        -->        <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@type": "WebSite",
+                 "@id": "https://thesquirrelagency.com/#website",
                 "name": "The Squirrel Agency",
                 "alternateName": ["Squirrel Agency", "The Squirrel Agency Kanpur"],
-                "url": "https://thesquirrelagency.com/"
+                "url": "https://thesquirrelagency.com/",
+                "description": "Digital-first creative, e-commerce and performance marketing studio for websites, SEO, Meta & Google Ads, and marketplace listings.",
+                "inLanguage": "en",
+                "publisher": { "@id": "https://thesquirrelagency.com/#organization" }
             }
         </script>
         <script type="application/ld+json">
@@ -63,21 +68,24 @@
                 "@context": "https://schema.org",
                 "@graph": [
                     {
-                        "@type": "Organization",
+                         "@type": ["Organization", "ProfessionalService", "MarketingAgency"],
                         "@id": "https://thesquirrelagency.com/#organization",
                         "name": "The Squirrel Agency",
-                        "alternateName": ["Squirrel Agency", "thesquirrelagency"],
+                        "legalName": "The Squirrel Agency",
+                        "alternateName": ["Squirrel Agency", "The Squirrel Agency Kanpur"],
                         "url": "https://thesquirrelagency.com/",
                         "logo": {
                             "@type": "ImageObject",
                             "url": "https://thesquirrelagency.com/favicon-512x512.png",
                             "width": 512,
-                            "height": 512
+                             "height": 512,
+                            "caption": "The Squirrel Agency"
                         },
                         "image": "https://thesquirrelagency.com/og-image.png",
-                        "description": "Creative minds, smarter results. Digital growth and e-commerce agency for websites, SEO, ads and marketplace listings.",
-                        "email": "info.thesquirrelagency@gmail.com",
+                        "description": "The Squirrel Agency is a digital-first creative, e-commerce and performance marketing studio founded by Akash Gupta in Kanpur, India. The agency helps brands grow through website development, SEO, Meta Ads, Google Ads, campaign management, creative production, and marketplace product listings on Amazon, Flipkart and Myntra. It is a remote-first studio serving clients across India and worldwide — distinct from other similarly named tech or creative firms.",                        "email": "info.thesquirrelagency@gmail.com",
                         "telephone": "+91-92774-77048",
+                        "foundingDate": "2024",
+                        "founder": { "@id": "https://thesquirrelagency.com/#founder" },
                         "address": {
                             "@type": "PostalAddress",
                             "streetAddress": "M Block, Kidwai Nagar",
@@ -85,34 +93,133 @@
                             "addressRegion": "Uttar Pradesh",
                             "addressCountry": "IN"
                         },
+                   "areaServed": [
+                            { "@type": "Country", "name": "India" },
+                            { "@type": "Place", "name": "Worldwide" }
+                        ],
                         "sameAs": ["https://instagram.com/thesquirrel_agency"],
-                        "slogan": "creative minds smarter results"
+                        "slogan": "creative minds smarter results",
+                        "knowsAbout": [
+                            "Website development",
+                            "Landing page development",
+                            "Search engine optimisation",
+                            "Meta Ads",
+                            "Google Ads",
+                            "Campaign management",
+                            "Amazon product listing",
+                            "Flipkart product listing",
+                            "Myntra product listing",
+                            "UGC video",
+                            "E-commerce growth"
+                        ],
+                        "makesOffer": [
+                            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Website Development" } },
+                            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO" } },
+                            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Meta Ads" } },
+                            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Google Ads" } },
+                            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Amazon Product Listing" } },
+                            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Flipkart Product Listing" } },
+                            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Myntra Product Listing" } }
+                        ],
+                        "contactPoint": {
+                            "@type": "ContactPoint",
+                            "telephone": "+91-92774-77048",
+                            "contactType": "sales",
+                            "email": "info.thesquirrelagency@gmail.com",
+                            "areaServed": "IN",
+                            "availableLanguage": ["English", "Hindi"]
+                        }
                     },
                     {
-                        "@type": "WebSite",
-                        "@id": "https://thesquirrelagency.com/#website",
-                        "url": "https://thesquirrelagency.com/",
-                        "name": "The Squirrel Agency",
-                        "description": "Full-stack digital growth and e-commerce agency.",
-                        "publisher": { "@id": "https://thesquirrelagency.com/#organization" },
-                        "inLanguage": "en"
+                        "@type": "Person",
+                        "@id": "https://thesquirrelagency.com/#founder",
+                        "name": "Akash Gupta",
+                        "jobTitle": "Founder & Creative Strategist",
+                        "url": "https://thesquirrelagency.com/about",
+                        "image": "https://thesquirrelagency.com/images/founder.jpg",
+                        "worksFor": { "@id": "https://thesquirrelagency.com/#organization" },
+                        "description": "Akash Gupta is the founder of The Squirrel Agency, a digital-first creative and performance marketing studio based in Kanpur, India."
                     },
                     {
                         "@type": "WebPage",
                         "@id": "https://thesquirrelagency.com/#webpage",
                         "url": "https://thesquirrelagency.com/",
                         "name": "The Squirrel Agency | Digital Growth & E-Commerce Agency",
-                        "alternateName": "Squirrel Agency",
                         "isPartOf": { "@id": "https://thesquirrelagency.com/#website" },
                         "about": { "@id": "https://thesquirrelagency.com/#organization" },
-                        "description": "Creative minds, smarter results. Website development, SEO, Meta & Google Ads, and marketplace listings."
+                        "primaryImageOfPage": {
+                            "@type": "ImageObject",
+                            "url": "https://thesquirrelagency.com/og-image.png"
+                        },
+                        "description": "Official website of The Squirrel Agency — digital growth and e-commerce agency in Kanpur for websites, SEO, Meta & Google Ads, and marketplace listings.",
+                        "inLanguage": "en",
+                        "speakable": {
+                            "@type": "SpeakableSpecification",
+                            "cssSelector": [".entity-definition", ".faq-section", ".about-teaser"]
+                        }
+                    },
+                    {
+            "@type": "FAQPage",
+                        "@id": "https://thesquirrelagency.com/#faq",
+                        "mainEntity": [
+                            {
+                                "@type": "Question",
+                                "name": "What is The Squirrel Agency?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "The Squirrel Agency is a digital-first creative, e-commerce and performance marketing studio founded by Akash Gupta. Based in Kanpur, India and working remote-first worldwide, the agency helps brands with website development, SEO, Meta Ads, Google Ads, creative production, and marketplace product listings on Amazon, Flipkart and Myntra."
+                                }
+                            },
+            {
+                                "@type": "Question",
+                                "name": "Where is The Squirrel Agency based?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "The Squirrel Agency is based in M Block, Kidwai Nagar, Kanpur Nagar, Uttar Pradesh, India. It operates as a remote-first studio and serves clients across India and worldwide."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Who founded The Squirrel Agency?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "The Squirrel Agency was founded by Akash Gupta, Founder and Creative Strategist. He combines strategy, design, development and performance marketing to help brands turn attention into measurable growth."
+                                }
+                            },
+            {
+                                "@type": "Question",
+                                "name": "What services does The Squirrel Agency offer?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "The Squirrel Agency offers eleven disciplines under one roof: website development, landing page development, SEO, Meta Ads, Google Ads, campaign management, poster design, UGC video creation, and Amazon, Flipkart and Myntra product listing optimisation."
+                                }
+                            },
+                            {
+                                "@type": "Question",
+                                "name": "Is The Squirrel Agency the same as other companies named Squirrel?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "No. The Squirrel Agency (thesquirrelagency.com) is the Kanpur-based digital growth and e-commerce agency founded by Akash Gupta. It is a distinct business from other similarly named studios or tech agencies elsewhere in India or abroad."
+                                }
+                            },
+            {
+                                "@type": "Question",
+                                "name": "How can I contact The Squirrel Agency?",
+                                "acceptedAnswer": {
+                                    "@type": "Answer",
+                                    "text": "You can contact The Squirrel Agency by phone at +91 92774 77048, by email at info.thesquirrelagency@gmail.com, on Instagram at @thesquirrel_agency, or through the contact form at https://thesquirrelagency.com/contact. Every enquiry receives a response within 24 hours."
+                                }
+                            }
+                        ]
                     }
                 ]
             }
         </script>
     </head>
     <body>
-        <noscript>You need to enable JavaScript to run this app.</noscript>
+<noscript>
+            <p>The Squirrel Agency is a digital-first creative, e-commerce and performance marketing studio founded by Akash Gupta in Kanpur, India. Website development, SEO, Meta &amp; Google Ads, and marketplace listings.</p>
+        </noscript>
         <div id="root"></div>
            </body>
 </html>
