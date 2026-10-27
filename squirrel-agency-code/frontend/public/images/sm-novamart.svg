@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="SM Novamart">
+  <rect width="240" height="240" fill="#F4F1EA"/>
+  <circle cx="120" cy="88" r="46" fill="none" stroke="#8B6914" stroke-width="3.5"/>
+  <path d="M98 78h44v8H98zm6 14h32v8H104zm6 14h20v8h-20z" fill="#8B6914"/>
+  <path d="M78 118h84l-8 42H86z" fill="none" stroke="#8B6914" stroke-width="3.5" stroke-linejoin="round"/>
+  <circle cx="98" cy="172" r="7" fill="#8B6914"/>
+  <circle cx="142" cy="172" r="7" fill="#8B6914"/>
+  <text x="120" y="208" text-anchor="middle" font-family="Georgia, serif" font-size="18" font-weight="700" letter-spacing="2" fill="#3D2E0A">SM NOVAMART</text>
+</svg>
