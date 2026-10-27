@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Zerviq">
+  <rect width="240" height="240" fill="#0F0F12"/>
+  <path d="M72 62h96l-72 88h68v18H68l72-88H72V62z" fill="#C9A227"/>
+  <rect x="72" y="168" width="96" height="3" fill="#C9A227" opacity=".55"/>
+  <text x="120" y="208" text-anchor="middle" font-family="'Helvetica Neue', Helvetica, Arial, sans-serif" font-size="20" font-weight="600" letter-spacing="6" fill="#F5F0E6">ZERVIQ</text>
+</svg>
