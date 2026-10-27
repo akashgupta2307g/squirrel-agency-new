@@ -691,6 +691,7 @@ function App() {
               <Route path="/services/:slug" element={<ServiceDetail />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/work" element={<WorkPage />} />
+              <Route path="/work/:slug" element={<BrandDetail />} />
               <Route path="/case-studies" element={<CaseStudies />} />
               <Route path="/case-studies/:id" element={<CaseDetail />} />
               <Route path="/contact" element={<ContactPage />} />
