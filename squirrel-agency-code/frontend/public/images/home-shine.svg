@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 240" role="img" aria-label="Home Shine">
+  <rect width="240" height="240" fill="#EEF6F8"/>
+  <path d="M120 48L54 104v88h52v-44h28v44h52v-88z" fill="none" stroke="#1A6B7A" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M120 78l22 14v-10h16v22l18 12" fill="none" stroke="#1A6B7A" stroke-width="3" opacity=".35"/>
+  <g fill="#E8A317">
+    <path d="M168 58l4 12 12 4-12 4-4 12-4-12-12-4 12-4z"/>
+    <path d="M188 88l2.5 7.5 7.5 2.5-7.5 2.5-2.5 7.5-2.5-7.5-7.5-2.5 7.5-2.5z" opacity=".7"/>
+  </g>
+  <text x="120" y="214" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="17" font-weight="700" letter-spacing="1.5" fill="#134E59">HOME SHINE</text>
+</svg>
