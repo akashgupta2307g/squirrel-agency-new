@@ -22,6 +22,26 @@
     <priority>0.8</priority>
   </url>
   <url>
+        <loc>https://thesquirrelagency.com/work/sm-novamart</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://thesquirrelagency.com/work/zerviq</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://thesquirrelagency.com/work/home-shine</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
+    <loc>https://thesquirrelagency.com/work/instafation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+  </url>
+  <url>
     <loc>https://thesquirrelagency.com/case-studies</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
