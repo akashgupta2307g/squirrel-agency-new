@@ -1,3 +1,34 @@
 User-agent: *
 Allow: /
+
+# AI / answer-engine crawlers (GEO & AEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
 Sitemap: https://thesquirrelagency.com/sitemap.xml
+# Machine-readable brand summary for AI systems
+# https://thesquirrelagency.com/llms.txt
