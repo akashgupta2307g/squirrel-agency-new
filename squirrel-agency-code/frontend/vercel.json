@@ -1,4 +1,10 @@
 {
   "build": { "env": { "CI": "false" } },
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "headers": [
+    {
+      "source": "/llms.txt",
+      "headers": [{ "key": "Content-Type", "value": "text/plain; charset=utf-8" }]
+    }
+  ],
+  "rewrites": [{ "source": "/((?!llms\\.txt|robots\\.txt|sitemap\\.xml).*)", "destination": "/index.html" }]
 }
