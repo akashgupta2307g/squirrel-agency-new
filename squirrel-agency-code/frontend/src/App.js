@@ -667,6 +667,7 @@ function SeoHead() {
     setMeta("description", description);
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
+    setMeta("og:site_name", "The Squirrel Agency", "property");
     setMeta("og:url", `${SITE}${pathname === "/" ? "/" : pathname}`, "property");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
