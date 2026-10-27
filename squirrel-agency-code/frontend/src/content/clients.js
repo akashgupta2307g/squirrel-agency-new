@@ -8,8 +8,8 @@ export const clients = [
   {
     name: "SM Novamart",
     slug: "sm-novamart",
-    logo: "/images/client-smnovamart.png",
-
+    logo: "/images/sm-novamart.svg",
+    accent: "#8B6914",
     sector: "Marketplace · E-commerce · Performance Marketing",
 
     summary:
@@ -244,8 +244,8 @@ export const clients = [
   {
     name: "Zerviq",
     slug: "zerviq",
-    logo: "/images/client-zerviq.png",
-
+    logo: "/images/zerviq.svg",
+    accent: "#C9A227",
     sector: "Premium Brand · Performance Marketing · Creative",
 
     summary:
@@ -458,7 +458,8 @@ export const clients = [
   {
     name: "Home Shine",
     slug: "home-shine",
-    logo: "/images/client-homeshine.png",
+    logo: "/images/home-shine.svg",
+    accent: "#1A6B7A",
 
     sector: "Home & Kitchen · E-commerce · Catalogue Growth",
 
@@ -634,8 +635,9 @@ export const clients = [
   {
     name: "Instafation",
     slug: "instafation",
-    logo: null,
+    logo: "/images/instafation.svg",
     monogram: "IF",
+    accent: "#5B2BE0",
 
     sector: "Digital Growth · Full Funnel · Performance",
 
