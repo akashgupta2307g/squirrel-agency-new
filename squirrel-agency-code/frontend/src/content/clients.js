@@ -848,3 +848,41 @@ export const clients = [
     }
   }
 ];
+
+/*
+ * Data exports used by App.js
+ */
+
+// Build project cards from the existing client case studies.
+export const projects = clients.map((client) => ({
+  id: client.slug,
+  title: client.name,
+  name: client.name,
+  image: client.cover_image || client.image || client.logo || "/images/workspace.jpg",
+  cover_image: client.cover_image || client.image || client.logo || "/images/workspace.jpg",
+  category: client.sector || "Case Study",
+  tag: client.sector || "Case Study",
+  summary: client.summary || "",
+  desc: client.summary || "",
+  status_label: "Case Study",
+  type: "Case Study",
+}));
+
+// Use testimonials already present in the client data.
+export const testimonials = clients
+  .filter((client) => client.testimonial && client.testimonial.quote)
+  .map((client) => [
+    client.testimonial.quote,
+    client.monogram || client.name.slice(0, 2).toUpperCase(),
+    client.testimonial.name || client.name,
+    client.testimonial.role || client.sector || "Client",
+  ]);
+
+// Basic website statistics.
+export const stats = [
+  ["11", "Digital services"],
+  [String(clients.length), "Brand case studies"],
+  ["360°", "Growth support"],
+];
+
+
