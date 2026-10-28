@@ -191,6 +191,7 @@ function SectionHead({ title, text }) {
   );
 }
 function Logo() { return <img className="logo-mark" src={LOGO} alt="The Squirrel Agency" width="160" height="60" decoding="async" />; }
+
 const faqs = [
   ["What is The Squirrel Agency?", "The Squirrel Agency is a digital-first creative, e-commerce and performance marketing studio founded by Akash Gupta. Based in Kanpur, India and working remote-first worldwide, we help brands with website development, SEO, Meta Ads, Google Ads, creative production, and marketplace listings on Amazon, Flipkart and Myntra."],
   ["Where is The Squirrel Agency based?", "The Squirrel Agency is based in M Block, Kidwai Nagar, Kanpur Nagar, Uttar Pradesh, India. We operate as a remote-first studio and serve clients across India and worldwide."],
@@ -199,6 +200,7 @@ const faqs = [
   ["Is The Squirrel Agency the same as other companies named Squirrel?", "No. The Squirrel Agency (thesquirrelagency.com) is the Kanpur-based digital growth and e-commerce agency founded by Akash Gupta. It is a distinct business from other similarly named studios or tech agencies elsewhere in India or abroad."],
   ["How can I contact The Squirrel Agency?", "Call +91 92774 77048, email info.thesquirrelagency@gmail.com, message @thesquirrel_agency on Instagram, or use the contact form. Every enquiry gets a response within 24 hours."],
 ];
+
 function FaqSection() {
   const [open, setOpen] = useState(0);
   return (
@@ -228,6 +230,7 @@ function FaqSection() {
     </section>
   );
 }
+
 function Header() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
@@ -269,7 +272,7 @@ function Hero() {
   const onMove = (e) => { if (reduce) return; setTilt({ x: e.clientX / window.innerWidth - 0.5, y: e.clientY / window.innerHeight - 0.5 }); };
   return <section className="hero" ref={heroRef} onMouseMove={onMove}>
     <div className="hero-copy">
-          <p className="eyebrow hero-brand" data-testid="hero-brand">THE SQUIRREL AGENCY</p>
+      <p className="eyebrow hero-brand" data-testid="hero-brand">THE SQUIRREL AGENCY</p>
       <h1 className={done ? "done" : ""} data-testid="hero-headline">{text}<span className="reveal-space">&nbsp;</span></h1>
       <motion.div className="hero-bottom" initial={{ opacity: 0, y: 26 }} animate={done ? { opacity: 1, y: 0 } : {}} transition={{ duration: 0.8, ease }}>
         <p className="entity-definition" data-testid="hero-subheading">The Squirrel Agency builds technology, creativity and performance marketing for ambitious brands — websites, campaigns, SEO and marketplace growth under one roof in Kanpur, working worldwide.</p>
@@ -287,44 +290,264 @@ function Hero() {
 
 function Marquee() { const items = [...clients.map((c) => c.name.toUpperCase()), ...services.slice(0, 5).map((s) => s[1]), "E-COMMERCE"]; const loop = [...items, ...items]; return <div className="marquee" data-testid="capabilities-marquee" aria-hidden="true"><div>{loop.map((x, i) => <span key={`${x}-${i}`}>{x} <b>✳</b></span>)}</div></div>; }
 function Stats() { return <section className="light stats-band" data-testid="stats-strip"><Reveal className="stats">{stats.map(([n, l], i) => <div className="stat" key={l} data-testid={`stat-${i + 1}`}><b>{n}</b><span>{l}</span></div>)}</Reveal></section>; }
-function BrandLogos({ eyebrow = "01 / PARTNERS", title = <>Brands we’ve<br /><em>grown.</em></>, text = "Tap a logo to open the full case history — challenge, strategy, execution and results." }) {
+function BrandLogos() {
   return (
-    <section className="section light clients-section" data-testid="clients-section">
+    <section className="section light brand-logos-section" data-testid="brand-logos-section">
       <SectionHead
+        eyebrow="01 / PARTNERS"
         title={<>Brands we’ve<br /><em>grown.</em></>}
-        text="Real partnerships. Real sales. We work with ambitious brands on marketplaces, creatives and performance — and we stay until the numbers move."
+        text="Tap a logo to open the full case history — challenge, strategy, execution and results."
       />
-      <div className="clients-grid">
+      <div className="brand-logo-grid">
         {clients.map((c, i) => (
-          <Reveal className="client-card" key={c.slug} delay={i * 0.06} data-testid={`client-card-${c.slug}`}>
-            <div className="client-logo-wrap">
-              {c.logo ? (
-                <Image src={c.logo} alt={`${c.name} logo`} className="client-logo" />
-              ) : (
-                <div className="client-monogram" aria-hidden="true">{c.monogram}</div>
-              )}
-            </div>
-            <div className="client-body">
-              <span className="client-sector">{c.sector}</span>
-              <h3>{c.name}</h3>
-              <p className="client-summary">{c.summary}</p>
-              <p className="client-story">{c.story}</p>
-              <ul className="client-work">
-                {c.work.map((w) => <li key={w}>{w}</li>)}
-              </ul>
-              <div className="client-results">
-                {c.results.map(([n, l]) => (
-                  <div className="client-result" key={l}>
-                    <strong>{n}</strong>
-                    <span>{l}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <Reveal key={c.slug} delay={i * 0.06}>
+            <Link to={`/work/${c.slug}`} className="brand-logo-tile" data-testid={`brand-logo-${c.slug}`} aria-label={`View ${c.name} case study`}>
+              <img src={c.logo} alt={`${c.name} logo`} className="brand-logo-img" width="200" height="200" loading="lazy" />
+              <span className="brand-logo-name">{c.name}</span>
+              <span className="brand-logo-cta">View case ↗</span>
+            </Link>
           </Reveal>
         ))}
       </div>
     </section>
+  );
+}
+
+function ClientsSection({ detailed = true }) {
+  if (!detailed) return <BrandLogos />;
+  return (
+    <section className="section light clients-section" data-testid="clients-section">
+      <SectionHead
+        title={<>Brands we’ve<br /><em>grown.</em></>}
+        text="Real partnerships. Real sales. Open any brand for the full history — or scan the highlights below."
+      />
+      <div className="clients-grid">
+        {clients.map((c, i) => {
+          const highlights = (c.services || []).slice(0, 4);
+          const story = c.heroDescription || c.summary;
+          return (
+            <Reveal className="client-card" key={c.slug} delay={i * 0.06} data-testid={`client-card-${c.slug}`}>
+              <Link to={`/work/${c.slug}`} className="client-logo-wrap client-logo-link" aria-label={`${c.name} case study`}>
+                <img src={c.logo} alt={`${c.name} logo`} className="client-logo" width="280" height="280" loading="lazy" />
+              </Link>
+              <div className="client-body">
+                <span className="client-sector">{c.sector}</span>
+                <h3><Link to={`/work/${c.slug}`} data-testid={`client-title-${c.slug}`}>{c.name}</Link></h3>
+                <p className="client-summary">{c.summary}</p>
+                <p className="client-story">{story}</p>
+                <ul className="client-work">
+                  {highlights.map((w) => <li key={w}>{w}</li>)}
+                </ul>
+                <div className="client-results">
+                  {(c.results || []).map((r) => (
+                    <div className="client-result" key={r.metric + r.title}>
+                      <strong>{r.metric}</strong>
+                      <span>{r.description || r.title}</span>
+                    </div>
+                  ))}
+                </div>
+                <Link to={`/work/${c.slug}`} className="text-link client-read-link" data-testid={`client-read-${c.slug}`}>
+                  Read full history <span>↗</span>
+                </Link>
+              </div>
+            </Reveal>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
+function BrandDetail() {
+  const { slug } = useParams();
+  const c = clients.find((x) => x.slug === slug) || clients[0];
+  const others = clients.filter((x) => x.slug !== c.slug);
+  return (
+    <>
+      <Header />
+      <main className="brand-detail">
+        <section className="page-intro brand-hero">
+          <Reveal>
+            <p className="eyebrow">{c.sector}</p>
+            <div className="brand-hero-top">
+              <img src={c.logo} alt={`${c.name} logo`} className="brand-hero-logo" width="120" height="120" />
+              <div>
+                <h1>{c.name}</h1>
+                <p className="brand-hero-lede">{c.heroTitle || c.summary}</p>
+              </div>
+            </div>
+            <p>{c.heroDescription || c.summary}</p>
+          </Reveal>
+        </section>
+
+        {c.aboutBrand && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>{c.aboutBrand.title}</h2>
+              {c.aboutBrand.content.map((p) => <p key={p.slice(0, 40)}>{p}</p>)}
+            </Reveal>
+          </section>
+        )}
+
+        {c.challenge && (
+          <section className="light brand-block brand-challenge">
+            <Reveal>
+              <h2>{c.challenge.title}</h2>
+              {c.challenge.intro && <p className="brand-lead">{c.challenge.intro}</p>}
+              <div className="brand-points">
+                {(c.challenge.points || []).map((pt) => (
+                  <article key={pt.title}>
+                    <h3>{pt.title}</h3>
+                    <p>{pt.description}</p>
+                  </article>
+                ))}
+              </div>
+            </Reveal>
+          </section>
+        )}
+
+        {c.opportunity && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>{c.opportunity.title}</h2>
+              <p className="brand-lead">{c.opportunity.content}</p>
+            </Reveal>
+          </section>
+        )}
+
+        {c.strategy && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>{c.strategy.title}</h2>
+              {c.strategy.intro && <p className="brand-lead">{c.strategy.intro}</p>}
+              <div className="brand-pillars">
+                {(c.strategy.pillars || []).map((p) => (
+                  <article key={p.title}>
+                    <h3>{p.title}</h3>
+                    <p>{p.description}</p>
+                  </article>
+                ))}
+              </div>
+            </Reveal>
+          </section>
+        )}
+
+        {c.services?.length > 0 && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>What we delivered</h2>
+              <ul className="brand-services">
+                {c.services.map((s) => <li key={s}>{s}</li>)}
+              </ul>
+            </Reveal>
+          </section>
+        )}
+
+        {c.execution && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>{c.execution.title}</h2>
+              <div className="brand-exec">
+                {(c.execution.sections || []).map((s) => (
+                  <article key={s.title}>
+                    <h3>{s.title}</h3>
+                    <p>{s.content}</p>
+                  </article>
+                ))}
+              </div>
+            </Reveal>
+          </section>
+        )}
+
+        {c.process && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>{c.process.title}</h2>
+              <ol className="brand-process">
+                {(c.process.steps || []).map((s) => (
+                  <li key={s.number}>
+                    <span>{s.number}</span>
+                    <div>
+                      <strong>{s.title}</strong>
+                      <p>{s.description}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </Reveal>
+          </section>
+        )}
+
+        {c.results?.length > 0 && (
+          <section className="light brand-block brand-results">
+            <Reveal>
+              <h2>Results</h2>
+              <div className="brand-metrics">
+                {c.results.map((r) => (
+                  <div className="brand-metric" key={r.metric + r.title}>
+                    <strong style={{ color: c.accent || "var(--blue)" }}>{r.metric}</strong>
+                    <b>{r.title}</b>
+                    <span>{r.description}</span>
+                  </div>
+                ))}
+              </div>
+            </Reveal>
+          </section>
+        )}
+
+        {c.impact && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>{c.impact.title}</h2>
+              {c.impact.content.map((p) => <p key={p.slice(0, 40)}>{p}</p>)}
+            </Reveal>
+          </section>
+        )}
+
+        {c.keyTakeaways?.length > 0 && (
+          <section className="light brand-block">
+            <Reveal>
+              <h2>Key takeaways</h2>
+              <ul className="brand-takeaways">
+                {c.keyTakeaways.map((t) => <li key={t}>{t}</li>)}
+              </ul>
+            </Reveal>
+          </section>
+        )}
+
+        {c.testimonial && (
+          <section className="light brand-quote">
+            <Reveal>
+              <blockquote>“{c.testimonial.quote}”</blockquote>
+              <cite>{c.testimonial.name} — {c.testimonial.role}</cite>
+            </Reveal>
+          </section>
+        )}
+
+        <section className="light brand-block brand-more">
+          <Reveal>
+            <h2>More brands</h2>
+            <div className="brand-logo-grid compact">
+              {others.map((o) => (
+                <Link key={o.slug} to={`/work/${o.slug}`} className="brand-logo-tile" data-testid={`brand-related-${o.slug}`}>
+                  <img src={o.logo} alt={`${o.name} logo`} className="brand-logo-img" width="160" height="160" loading="lazy" />
+                  <span className="brand-logo-name">{o.name}</span>
+                </Link>
+              ))}
+            </div>
+          </Reveal>
+        </section>
+
+        <section className="final-cta">
+          <Reveal>
+            <h2>{c.cta?.title || "Let’s build something remarkable."}</h2>
+            <p>{c.cta?.description || "Tell us what you’re building — every enquiry gets a response within 24 hours."}</p>
+            <Link to="/contact" className="button button-accent" data-testid="brand-cta">{c.cta?.button || "Start a project"} <span>↗</span></Link>
+          </Reveal>
+        </section>
+      </main>
+      <Footer />
+    </>
   );
 }
 
@@ -385,8 +608,65 @@ function Insights() { return <section className="section light insights-section"
 
 function AboutTeaser() { return <section className="section light about-teaser"><Reveal><h2>We don’t just<br />make things look good.<br /><em>We make them work.</em></h2></Reveal><Reveal delay={0.12}><p className="entity-definition">The Squirrel Agency is a digital-first creative and performance studio for ambitious brands that want their next chapter to matter — founded by Akash Gupta in Kanpur, built remote-first, and obsessed with clarity over theatre. Official site: thesquirrelagency.com.</p><Link to="/about" className="button button-outline" data-testid="meet-agency-link">Meet the agency <span>↗</span></Link></Reveal></section>; }
 function CTA() { return <section className="final-cta"><Reveal><h2>Let’s build<br /><em>something</em><br />remarkable.</h2><p>Tell us what you’re building, what is not working, or what you want to make possible. Every enquiry gets a response within 24 hours — call, mail or WhatsApp.</p><Link to="/contact" className="button button-accent" data-testid="final-start-project">Start a project <span>↗</span></Link></Reveal></section>; }
-function PageIntro({ title, text }) { return <section className="page-intro"><Reveal><h1>{title}</h1>{text && <p>{text}</p>}</Reveal></section>; }
-function Home() { return <><Header /><main><Hero /><Marquee /><Stats /><ClientsSection detailed={false} /><ServicesSection /><StudioBand /><Funnel /><Marketplace /><Process /><Testimonials /><Insights /><AboutTeaser /><FaqSection /><CTA /></main><Footer /></>; }function ServiceDetail() {
+function PageIntro({ eyebrow, title, text }) {
+  return (
+    <section className="page-intro">
+      <Reveal>
+        {eyebrow ? <p className="eyebrow">{eyebrow}</p> : null}
+        <h1>{title}</h1>
+        {text ? <p>{text}</p> : null}
+      </Reveal>
+    </section>
+  );
+}
+function Home() {
+  return (
+    <>
+      <Header />
+      <main>
+        <Hero />
+        <Marquee />
+        <Stats />
+        <ClientsSection detailed={false} />
+        <ServicesSection />
+        <StudioBand />
+        <Funnel />
+        <Marketplace />
+        <Process />
+        <Testimonials />
+        <Insights />
+        <AboutTeaser />
+        <FaqSection />
+        <CTA />
+      </main>
+      <Footer />
+    </>
+  );
+}
+function ServicesPage() {
+  return (
+    <>
+      <Header />
+      <main>
+        <PageIntro
+          eyebrow="02 / CAPABILITIES"
+          title={<>The right people<br /><em>for the whole picture.</em></>}
+          text="We bring the disciplines together early — strategy, design, development, media and marketplace — so the output feels like one thought, not eleven handoffs. Pick a service below to see how we approach it."
+        />
+        <ServicesSection />
+        <section className="service-manifesto">
+          <Reveal>
+            <h2>One team.<br /><em>More momentum.</em></h2>
+            <p className="manifesto-text">Most brands lose time between agencies, freelancers and platforms. We keep website, creative and performance in the same room so decisions stay fast, the story stays consistent, and every rupee of attention has a job.</p>
+            <Link to="/contact" className="button button-accent" data-testid="services-cta">Start a project <span>↗</span></Link>
+          </Reveal>
+        </section>
+      </main>
+      <Footer />
+    </>
+  );
+}
+function ServiceDetail() {
   const { slug } = useParams();
   const index = Math.max(0, services.findIndex((s) => s[3] === slug));
   const item = services[index] || services[0];
@@ -632,7 +912,7 @@ function setCanonical(url) {
 }
 const SITE = "https://thesquirrelagency.com";
 const DEFAULT_DESC = "The Squirrel Agency is a digital-first creative and e-commerce agency founded by Akash Gupta in Kanpur — websites, SEO, Meta & Google Ads, and marketplace listings.";
-  function pageSeo(pathname) {
+function pageSeo(pathname) {
   const map = {
     "/": ["The Squirrel Agency | Digital Growth & E-Commerce Agency", DEFAULT_DESC],
     "/services": ["Services | The Squirrel Agency", "Eleven disciplines under one roof — websites, landing pages, SEO, Meta & Google Ads, creative and marketplace listings from The Squirrel Agency."],
@@ -653,7 +933,7 @@ const DEFAULT_DESC = "The Squirrel Agency is a digital-first creative and e-comm
     const item = services.find((s) => s[3] === slug);
     if (item) return [`${item[1]} | The Squirrel Agency`, item[2]];
   }
-    if (pathname.startsWith("/work/")) {
+  if (pathname.startsWith("/work/")) {
     const brand = clients.find((c) => c.slug === pathname.replace("/work/", ""));
     if (brand) return [`${brand.name} Case Study | The Squirrel Agency`, brand.summary || brand.heroDescription];
   }
@@ -674,6 +954,7 @@ function SeoHead() {
     setMeta("og:url", `${SITE}${pathname === "/" ? "/" : pathname}`, "property");
     setMeta("twitter:title", title);
     setMeta("twitter:description", description);
+    setMeta("application-name", "The Squirrel Agency");
     setCanonical(`${SITE}${pathname === "/" ? "/" : pathname}`);
   }, [pathname]);
   return null;
